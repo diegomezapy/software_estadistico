@@ -11,9 +11,9 @@
             --primary-color: #0A4FA3;
             --secondary-color: #4D4D4D;
             --accent-color: #f8f9fa;
-            --text-color: #333;
+            --text-color: #212529;
             --light-gray: #e9ecef;
-            --dark-gray: #6c757d;
+            --dark-gray: #495057;
             --success-color: #28a745;
             --info-color: #17a2b8;
             --warning-color: #ffc107;
@@ -56,14 +56,14 @@
         
         /* Header Styles */
         header {
-            background-color: rgba(10, 79, 163, 0.9);
+            background-color: rgba(10, 79, 163, 0.95);
             backdrop-filter: blur(10px);
             color: white;
             padding: 1rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
         }
         
         .header-content {
@@ -82,6 +82,7 @@
             font-size: 1.5rem;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         
         .facen-logo {
@@ -101,9 +102,10 @@
         nav ul li a {
             color: white;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
             transition: all 0.3s ease;
             position: relative;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
         }
         
         nav ul li a::after {
@@ -130,29 +132,43 @@
             z-index: 5;
         }
         
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        
         .hero-content {
             max-width: 900px;
             margin: 0 auto;
+            position: relative;
+            z-index: 2;
         }
         
         .hero-badge {
             display: inline-block;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
             color: white;
-            padding: 0.5rem 1.5rem;
+            padding: 0.6rem 1.8rem;
             border-radius: 30px;
-            font-weight: 600;
+            font-weight: 700;
             margin-bottom: 1.5rem;
             font-size: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
         }
         
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 1.5rem;
             line-height: 1.2;
-            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
             font-family: 'Montserrat', sans-serif;
             font-weight: 800;
         }
@@ -161,8 +177,8 @@
             font-size: 1.3rem;
             max-width: 800px;
             margin: 0 auto 2rem;
-            text-shadow: 0 1px 5px rgba(0, 0, 0, 0.3);
-            opacity: 0.9;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            font-weight: 500;
         }
         
         .course-info {
@@ -177,10 +193,12 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
-            background-color: rgba(255, 255, 255, 0.1);
+            background-color: rgba(255, 255, 255, 0.2);
             padding: 0.8rem 1.5rem;
             border-radius: 50px;
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
         }
         
         .info-icon {
@@ -193,20 +211,20 @@
             color: var(--primary-color);
             padding: 1rem 2rem;
             border-radius: 50px;
-            font-weight: 600;
+            font-weight: 700;
             text-decoration: none;
             transition: all 0.3s ease;
             border: none;
             cursor: pointer;
             font-size: 1.1rem;
             margin-top: 2rem;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
             font-family: 'Montserrat', sans-serif;
         }
         
         .btn:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
         
         /* Software Icons Section */
@@ -234,29 +252,53 @@
             width: 80px;
             height: 80px;
             border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.25);
             backdrop-filter: blur(10px);
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 2rem;
             color: white;
-            border: 2px solid rgba(255, 255, 255, 0.3);
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
         .icon-name {
-            font-weight: 600;
+            font-weight: 700;
             color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
         }
         
-        /* Instructor Section */
+        /* Section Backgrounds for Better Contrast */
         .instructor {
             padding: 5rem 0;
-            background-color: var(--accent-color);
+            background-color: #ffffff;
             position: relative;
             z-index: 5;
         }
         
+        .course-content {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .schedule {
+            padding: 5rem 0;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .requirements {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+            position: relative;
+            z-index: 5;
+        }
+        
+        /* Instructor Section */
         .instructor-content {
             display: flex;
             align-items: center;
@@ -271,7 +313,7 @@
         .instructor-image img {
             width: 100%;
             border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
         }
         
@@ -291,6 +333,7 @@
             margin-bottom: 1.5rem;
             font-size: 1.1rem;
             line-height: 1.8;
+            color: var(--text-color);
         }
         
         .instructor-highlights {
@@ -304,14 +347,14 @@
             background-color: white;
             border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary-color);
         }
         
         .highlight-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         
         .highlight-icon {
@@ -324,15 +367,10 @@
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 0.5rem;
+            font-size: 1.1rem;
         }
         
-        /* Course Content Section */
-        .course-content {
-            padding: 5rem 0;
-            position: relative;
-            z-index: 5;
-        }
-        
+        /* Section Title */
         .section-title {
             text-align: center;
             margin-bottom: 4rem;
@@ -351,6 +389,7 @@
             color: var(--dark-gray);
             max-width: 700px;
             margin: 0 auto;
+            font-weight: 500;
         }
         
         /* Tabs */
@@ -360,6 +399,10 @@
             margin-bottom: 3rem;
             border-bottom: 2px solid var(--light-gray);
             flex-wrap: wrap;
+            background-color: white;
+            padding: 0 1rem;
+            border-radius: 10px 10px 0 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
         }
         
         .tab {
@@ -380,11 +423,16 @@
         .tab.active {
             border-bottom-color: var(--primary-color);
             color: var(--primary-color);
+            background-color: rgba(10, 79, 163, 0.05);
         }
         
         .tab-content {
             display: none;
             animation: fadeIn 0.5s ease;
+            background-color: white;
+            border-radius: 0 0 10px 10px;
+            padding: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
         }
         
         .tab-content.active {
@@ -406,10 +454,11 @@
         .content-card {
             background-color: white;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             padding: 2rem;
             transition: all 0.3s ease;
             height: 100%;
+            border: 1px solid var(--light-gray);
         }
         
         .content-card:hover {
@@ -443,8 +492,9 @@
         }
         
         .card-content {
-            color: var(--dark-gray);
+            color: var(--text-color);
             line-height: 1.7;
+            font-weight: 500;
         }
         
         /* Detailed Program Styles */
@@ -456,15 +506,16 @@
         .unit-section {
             background-color: white;
             border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
             margin-bottom: 2rem;
             overflow: hidden;
             transition: all 0.3s ease;
+            border: 1px solid var(--light-gray);
         }
         
         .unit-section:hover {
             transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
         }
         
         .unit-header {
@@ -474,28 +525,33 @@
             display: flex;
             align-items: center;
             gap: 1rem;
+            box-shadow: 0 3px 10px rgba(10, 79, 163, 0.3);
         }
         
         .unit-number {
             width: 50px;
             height: 50px;
-            background-color: rgba(255, 255, 255, 0.2);
+            background-color: rgba(255, 255, 255, 0.25);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
             font-weight: 700;
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
         }
         
         .unit-title {
             font-size: 1.5rem;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
         }
         
         .unit-content {
             padding: 2rem;
+            background-color: #ffffff;
         }
         
         .topic-list {
@@ -522,18 +578,26 @@
             font-size: 1.2rem;
             margin-top: 0.2rem;
             flex-shrink: 0;
+            background-color: rgba(10, 79, 163, 0.1);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .topic-content h4 {
             color: var(--primary-color);
             margin-bottom: 0.5rem;
             font-size: 1.1rem;
-            font-weight: 600;
+            font-weight: 700;
         }
         
         .topic-content p {
-            color: var(--dark-gray);
+            color: var(--text-color);
             line-height: 1.6;
+            font-weight: 500;
         }
         
         .subtopics {
@@ -551,16 +615,15 @@
         .subtopic-bullet {
             color: var(--primary-color);
             margin-top: 0.5rem;
+            font-weight: 700;
+        }
+        
+        .subtopic-item div {
+            color: var(--text-color);
+            font-weight: 500;
         }
         
         /* Schedule Section */
-        .schedule {
-            padding: 5rem 0;
-            background-color: var(--accent-color);
-            position: relative;
-            z-index: 5;
-        }
-        
         .schedule-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -572,14 +635,15 @@
             background-color: white;
             border-radius: 12px;
             padding: 1.5rem;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
             transition: all 0.3s ease;
             border-left: 4px solid var(--primary-color);
+            border: 1px solid var(--light-gray);
         }
         
         .schedule-item:hover {
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
         
         .schedule-number {
@@ -602,13 +666,12 @@
             font-size: 1.1rem;
         }
         
-        /* Requirements Section */
-        .requirements {
-            padding: 5rem 0;
-            position: relative;
-            z-index: 5;
+        .schedule-item p {
+            color: var(--text-color);
+            font-weight: 500;
         }
         
+        /* Requirements Section */
         .requirements-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -641,6 +704,11 @@
             font-size: 1.3rem;
             font-weight: 700;
             margin-bottom: 1rem;
+        }
+        
+        .requirement-card p {
+            font-weight: 500;
+            opacity: 0.95;
         }
         
         /* Footer */
@@ -680,10 +748,16 @@
             color: white;
             text-decoration: none;
             transition: color 0.3s ease;
+            font-weight: 500;
         }
         
         .footer-section ul li a:hover {
             color: var(--accent-color);
+        }
+        
+        .footer-section p {
+            font-weight: 500;
+            opacity: 0.9;
         }
         
         .footer-bottom {

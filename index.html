@@ -2085,6 +2085,25 @@
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
+
+
+// Código para verificar carga de imágenes
+document.addEventListener('DOMContentLoaded', function() {
+    const images = document.querySelectorAll('img');
+    
+    images.forEach(img => {
+        img.addEventListener('error', function() {
+            console.error('Error cargando imagen:', this.src);
+            this.style.border = '2px solid red';
+            this.alt = 'ERROR: ' + this.src;
+        });
+        
+        img.addEventListener('load', function() {
+            console.log('Imagen cargada correctamente:', this.src);
+        });
+    });
+});
+
     </script>
 </body>
 </html>

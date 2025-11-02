@@ -227,44 +227,46 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
         
-        /* Software Logos Section */
-        .software-logos {
+        /* Software Icons Section */
+        .software-icons {
             display: flex;
             justify-content: center;
-            gap: 4rem;
+            gap: 3rem;
             margin-top: 3rem;
             flex-wrap: wrap;
-            align-items: center;
         }
         
-        .software-logo-item {
+        .software-icon {
             display: flex;
             flex-direction: column;
             align-items: center;
-            gap: 0.8rem;
+            gap: 0.5rem;
             transition: transform 0.3s ease;
         }
         
-        .software-logo-item:hover {
+        .software-icon:hover {
             transform: scale(1.1);
         }
         
-        .software-logo-img {
-            height: 70px;
-            width: auto;
-            filter: brightness(0) invert(1);
-            transition: all 0.3s ease;
+        .icon-circle {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: white;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
         }
         
-        .software-logo-item:hover .software-logo-img {
-            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
-        }
-        
-        .software-name {
+        .icon-name {
             font-weight: 700;
             color: white;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            font-size: 1.1rem;
         }
         
         /* Section Backgrounds for Better Contrast */
@@ -479,50 +481,6 @@
         }
         
         .card-content {
-            color: var(--text-color);
-            line-height: 1.7;
-            font-weight: 500;
-        }
-        
-        /* Software Cards with Logos */
-        .software-card {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            transition: all 0.3s ease;
-            height: 100%;
-            border: 1px solid var(--light-gray);
-            text-align: center;
-        }
-        
-        .software-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .software-card-logo {
-            height: 80px;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .software-card-logo img {
-            max-height: 100%;
-            max-width: 100%;
-            object-fit: contain;
-        }
-        
-        .software-card h3 {
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-        }
-        
-        .software-card p {
             color: var(--text-color);
             line-height: 1.7;
             font-weight: 500;
@@ -798,27 +756,6 @@
             font-size: 0.9rem;
         }
         
-        /* Footer Software Logos */
-        .footer-software-logos {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-            flex-wrap: wrap;
-        }
-        
-        .footer-software-logo {
-            width: 30px;
-            height: 30px;
-            filter: brightness(0) invert(1);
-            opacity: 0.8;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-software-logo:hover {
-            opacity: 1;
-            transform: scale(1.1);
-        }
-        
         /* Responsive */
         @media (max-width: 768px) {
             .header-content {
@@ -839,14 +776,6 @@
                 font-size: 2.5rem;
             }
             
-            .software-logos {
-                gap: 2rem;
-            }
-            
-            .software-logo-img {
-                height: 50px;
-            }
-            
             .instructor-content {
                 flex-direction: column;
                 text-align: center;
@@ -858,6 +787,10 @@
             
             .tabs {
                 flex-wrap: wrap;
+            }
+            
+            .software-icons {
+                gap: 1.5rem;
             }
             
             .unit-header {
@@ -904,7 +837,7 @@
             <div class="hero-content">
                 <div class="hero-badge">FACEN - Universidad Nacional de Asunción</div>
                 <h1>Softwares Estadísticos</h1>
-                <p>Domina las herramientas más poderosas para el análisis de datos</p>
+                <p>Domina las herramientas más poderosas para el análisis de datos: SPSS, Stata, R y Python</p>
                 
                 <div class="course-info">
                     <div class="info-item">
@@ -921,22 +854,30 @@
                     </div>
                 </div>
                 
-                <div class="software-logos">
-                    <div class="software-logo-item">
-                        <img src="logoSPSS.jpeg" alt="SPSS" class="software-logo-img">
-                        <div class="software-name">SPSS</div>
+                <div class="software-icons">
+                    <div class="software-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-chart-bar"></i>
+                        </div>
+                        <div class="icon-name">SPSS</div>
                     </div>
-                    <div class="software-logo-item">
-                        <img src="logoSTATA.jpeg" alt="Stata" class="software-logo-img">
-                        <div class="software-name">Stata</div>
+                    <div class="software-icon">
+                        <div class="icon-circle">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <div class="icon-name">Stata</div>
                     </div>
-                    <div class="software-logo-item">
-                        <img src="logoR.jpeg" alt="R" class="software-logo-img">
-                        <div class="software-name">R</div>
+                    <div class="software-icon">
+                        <div class="icon-circle">
+                            <i class="fab fa-r-project"></i>
+                        </div>
+                        <div class="icon-name">R</div>
                     </div>
-                    <div class="software-logo-item">
-                        <img src="logoPYTHON.jpeg" alt="Python" class="software-logo-img">
-                        <div class="software-name">Python</div>
+                    <div class="software-icon">
+                        <div class="icon-circle">
+                            <i class="fab fa-python"></i>
+                        </div>
+                        <div class="icon-name">Python</div>
                     </div>
                 </div>
                 
@@ -996,13 +937,6 @@
             
             <div id="spss" class="tab-content">
                 <div class="content-grid">
-                    <div class="software-card">
-                        <div class="software-card-logo">
-                            <img src="spss-logo.jpeg" alt="SPSS">
-                        </div>
-                        <h3>SPSS</h3>
-                        <p>Software estadístico con interfaz gráfica ideal para análisis de datos en ciencias sociales y investigación.</p>
-                    </div>
                     <div class="content-card">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-download"></i></div>
@@ -1044,13 +978,6 @@
             
             <div id="stata" class="tab-content">
                 <div class="content-grid">
-                    <div class="software-card">
-                        <div class="software-card-logo">
-                            <img src="stata-logo.jpeg" alt="Stata">
-                        </div>
-                        <h3>Stata</h3>
-                        <p>Software estadístico potente para economía, finanzas y ciencias sociales con sintaxis intuitiva.</p>
-                    </div>
                     <div class="content-card">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-download"></i></div>
@@ -1092,13 +1019,6 @@
             
             <div id="r" class="tab-content">
                 <div class="content-grid">
-                    <div class="software-card">
-                        <div class="software-card-logo">
-                            <img src="r-logo.jpeg" alt="R">
-                        </div>
-                        <h3>R</h3>
-                        <p>Lenguaje de programación especializado en computación estadística y gráficos.</p>
-                    </div>
                     <div class="content-card">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-download"></i></div>
@@ -1140,13 +1060,6 @@
             
             <div id="python" class="tab-content">
                 <div class="content-grid">
-                    <div class="software-card">
-                        <div class="software-card-logo">
-                            <img src="python-logo.jpeg" alt="Python">
-                        </div>
-                        <h3>Python</h3>
-                        <p>Lenguaje de programación versátil con potentes librerías para análisis de datos.</p>
-                    </div>
                     <div class="content-card">
                         <div class="card-header">
                             <div class="card-icon"><i class="fas fa-download"></i></div>
@@ -1893,12 +1806,6 @@
                 <div class="footer-section">
                     <h3>Softwares Estadísticos</h3>
                     <p>Asignatura electiva de la Facultad de Ciencias Exactas y Naturales - Universidad Nacional de Asunción</p>
-                    <div class="footer-software-logos">
-                        <img src="spss-logo.jpeg" alt="SPSS" class="footer-software-logo">
-                        <img src="stata-logo.jpeg" alt="Stata" class="footer-software-logo">
-                        <img src="r-logo.jpeg" alt="R" class="footer-software-logo">
-                        <img src="python-logo.jpeg" alt="Python" class="footer-software-logo">
-                    </div>
                 </div>
                 <div class="footer-section">
                     <h3>Enlaces Rápidos</h3>
@@ -2079,31 +1986,12 @@
         }, observerOptions);
         
         // Observe all cards
-        document.querySelectorAll('.content-card, .software-card, .schedule-item, .requirement-card, .unit-section').forEach(card => {
+        document.querySelectorAll('.content-card, .schedule-item, .requirement-card, .unit-section').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
         });
-
-
-// Código para verificar carga de imágenes
-document.addEventListener('DOMContentLoaded', function() {
-    const images = document.querySelectorAll('img');
-    
-    images.forEach(img => {
-        img.addEventListener('error', function() {
-            console.error('Error cargando imagen:', this.src);
-            this.style.border = '2px solid red';
-            this.alt = 'ERROR: ' + this.src;
-        });
-        
-        img.addEventListener('load', function() {
-            console.log('Imagen cargada correctamente:', this.src);
-        });
-    });
-});
-
     </script>
 </body>
 </html>

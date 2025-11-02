@@ -270,13 +270,6 @@
         }
         
         /* Section Backgrounds for Better Contrast */
-        .instructor {
-            padding: 5rem 0;
-            background-color: #ffffff;
-            position: relative;
-            z-index: 5;
-        }
-        
         .course-content {
             padding: 5rem 0;
             background-color: #f8f9fa;
@@ -298,22 +291,31 @@
             z-index: 5;
         }
         
-        /* Instructor Section */
+        .instructor {
+            padding: 4rem 0;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        /* Instructor Section - Reduced Prominence */
         .instructor-content {
             display: flex;
             align-items: center;
-            gap: 3rem;
+            gap: 2rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
         .instructor-image {
-            flex: 0 0 300px;
-            position: relative;
+            flex: 0 0 200px;
         }
         
         .instructor-image img {
             width: 100%;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s ease;
         }
         
@@ -323,51 +325,38 @@
         
         .instructor-info h2 {
             color: var(--primary-color);
-            margin-bottom: 1.5rem;
-            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
             font-family: 'Montserrat', sans-serif;
             font-weight: 700;
         }
         
         .instructor-info p {
-            margin-bottom: 1.5rem;
-            font-size: 1.1rem;
-            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
             color: var(--text-color);
         }
         
-        .instructor-highlights {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        .instructor-contact {
+            display: flex;
             gap: 1.5rem;
-            margin: 2rem 0;
+            margin-top: 1.5rem;
         }
         
-        .highlight-card {
-            background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
             transition: all 0.3s ease;
-            border-left: 4px solid var(--primary-color);
         }
         
-        .highlight-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .highlight-icon {
-            color: var(--primary-color);
-            font-size: 2rem;
-            margin-bottom: 1rem;
-        }
-        
-        .highlight-title {
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+        .contact-link:hover {
+            color: #1a73e8;
+            transform: translateY(-2px);
         }
         
         /* Section Title */
@@ -789,6 +778,11 @@
             
             .instructor-content {
                 flex-direction: column;
+                text-align: center;
+            }
+            
+            .instructor-contact {
+                justify-content: center;
             }
             
             .tabs {
@@ -827,10 +821,10 @@
             <nav>
                 <ul>
                     <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#instructor">Instructor</a></li>
                     <li><a href="#contenido">Contenido</a></li>
                     <li><a href="#programa">Programa</a></li>
                     <li><a href="#requisitos">Requisitos</a></li>
+                    <li><a href="#instructor">Instructor</a></li>
                     <li><a href="#contacto">Contacto</a></li>
                 </ul>
             </nav>
@@ -888,41 +882,6 @@
                 </div>
                 
                 <a href="#contenido" class="btn">Explorar Curso</a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Instructor Section -->
-    <section id="instructor" class="instructor">
-        <div class="container">
-            <div class="instructor-content">
-                <div class="instructor-image">
-                    <img src="imagenCV.jpeg" alt="Diego Bernardo Meza Bogado">
-                </div>
-                <div class="instructor-info">
-                    <h2>Diego Bernardo Meza Bogado</h2>
-                    <p><strong>Estadístico | Docente Universitario | Especialista en Análisis de Datos</strong></p>
-                    <p>Con más de 15 años de experiencia en gestión y análisis de datos, y 14 años en docencia universitaria, soy un experto en la aplicación de herramientas estadísticas para el análisis de datos complejos.</p>
-                    <p>Mi enfoque se centra en dirigir equipos técnicos que trabajan con datos de encuestas y registros administrativos para elaborar proyecciones demográficas, del mercado laboral, económicas y actuariales.</p>
-                    
-                    <div class="instructor-highlights">
-                        <div class="highlight-card">
-                            <div class="highlight-icon"><i class="fas fa-chart-bar"></i></div>
-                            <div class="highlight-title">15 Años</div>
-                            <div>Gestión y análisis de datos</div>
-                        </div>
-                        <div class="highlight-card">
-                            <div class="highlight-icon"><i class="fas fa-graduation-cap"></i></div>
-                            <div class="highlight-title">14 Años</div>
-                            <div>Docencia universitaria</div>
-                        </div>
-                        <div class="highlight-card">
-                            <div class="highlight-icon"><i class="fas fa-code"></i></div>
-                            <div class="highlight-title">Experto</div>
-                            <div>Excel, R-project y Stata</div>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
     </section>
@@ -1808,6 +1767,38 @@
         </div>
     </section>
 
+    <!-- Instructor Section - Moved to End with Reduced Prominence -->
+    <section id="instructor" class="instructor">
+        <div class="container">
+            <div class="section-title">
+                <h2>Sobre el Instructor</h2>
+                <p>Conoce al experto que guiará tu aprendizaje</p>
+            </div>
+            
+            <div class="instructor-content">
+                <div class="instructor-image">
+                    <img src="imagenCV.jpeg" alt="Diego Bernardo Meza Bogado">
+                </div>
+                <div class="instructor-info">
+                    <h2>Diego Bernardo Meza Bogado</h2>
+                    <p><strong>Estadístico | Docente Universitario | Especialista en Análisis de Datos</strong></p>
+                    <p>Con más de 15 años de experiencia en gestión y análisis de datos, y 14 años en docencia universitaria, soy un experto en la aplicación de herramientas estadísticas para el análisis de datos complejos.</p>
+                    
+                    <div class="instructor-contact">
+                        <a href="mailto:dmeza@facen.una.py" class="contact-link">
+                            <i class="fas fa-envelope"></i>
+                            Contactar
+                        </a>
+                        <a href="https://www.linkedin.com/in/diego-meza/" target="_blank" class="contact-link">
+                            <i class="fab fa-linkedin"></i>
+                            LinkedIn
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Footer -->
     <footer id="contacto">
         <div class="container">
@@ -1820,9 +1811,9 @@
                     <h3>Enlaces Rápidos</h3>
                     <ul>
                         <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#instructor">Instructor</a></li>
                         <li><a href="#contenido">Contenido</a></li>
                         <li><a href="#programa">Programa</a></li>
+                        <li><a href="#requisitos">Requisitos</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1995,7 +1986,7 @@
         }, observerOptions);
         
         // Observe all cards
-        document.querySelectorAll('.content-card, .schedule-item, .requirement-card, .highlight-card, .unit-section').forEach(card => {
+        document.querySelectorAll('.content-card, .schedule-item, .requirement-card, .unit-section').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

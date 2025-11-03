@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Softwares Estadísticos - FACEN | Universidad Nacional de Asunción</title>
+    <title>Unidad 1 · Aspectos Generales de los Softwares Estadísticos | FACEN - UNA</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -43,7 +43,7 @@
             z-index: 10;
         }
         
-        /* Particle Background */
+        /* Fondo animado */
         #particles-canvas {
             position: fixed;
             top: 0;
@@ -54,7 +54,7 @@
             background: linear-gradient(135deg, #0A4FA3 0%, #1a73e8 50%, #0A4FA3 100%);
         }
         
-        /* Header Styles */
+        /* Header */
         header {
             background-color: rgba(10, 79, 163, 0.95);
             backdrop-filter: blur(10px);
@@ -79,10 +79,20 @@
         }
         
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+        }
+        
+        .logo .main-title {
+            font-size: 1.2rem;
+        }
+        .logo .sub-title {
+            font-size: 0.9rem;
+            font-weight: 400;
+            opacity: 0.9;
         }
         
         .facen-logo {
@@ -123,10 +133,10 @@
             width: 100%;
         }
         
-        /* Hero Section */
+        /* Hero */
         .hero {
             color: white;
-            padding: 6rem 0;
+            padding: 6rem 0 4rem 0;
             text-align: center;
             position: relative;
             z-index: 5;
@@ -135,11 +145,8 @@
         .hero::before {
             content: '';
             position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: rgba(0, 0, 0, 0.3);
+            inset: 0;
+            background: rgba(0, 0, 0, 0.35);
             z-index: -1;
         }
         
@@ -165,8 +172,8 @@
         }
         
         .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
+            font-size: 3rem;
+            margin-bottom: 1rem;
             line-height: 1.2;
             text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
             font-family: 'Montserrat', sans-serif;
@@ -174,7 +181,7 @@
         }
         
         .hero p {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             max-width: 800px;
             margin: 0 auto 2rem;
             text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
@@ -227,146 +234,26 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
         }
         
-        /* Software Icons Section */
-        .software-icons {
-            display: flex;
-            justify-content: center;
-            gap: 3rem;
-            margin-top: 3rem;
-            flex-wrap: wrap;
-        }
-        
-        .software-icon {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            transition: transform 0.3s ease;
-        }
-        
-        .software-icon:hover {
-            transform: scale(1.1);
-        }
-        
-        .icon-circle {
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background-color: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 2rem;
-            color: white;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-        }
-        
-        .icon-name {
-            font-weight: 700;
-            color: white;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-        }
-        
-        /* Section Backgrounds for Better Contrast */
-        .course-content {
-            padding: 5rem 0;
-            background-color: #f8f9fa;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .schedule {
-            padding: 5rem 0;
-            background-color: #ffffff;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .requirements {
-            padding: 5rem 0;
-            background-color: #f8f9fa;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .instructor {
+        /* Secciones */
+        .section-block {
             padding: 4rem 0;
-            background-color: #ffffff;
             position: relative;
             z-index: 5;
-            border-top: 1px solid var(--light-gray);
+        }
+        .section-light {
+            background-color: #f8f9fa;
+        }
+        .section-white {
+            background-color: #ffffff;
         }
         
-        /* Instructor Section - Reduced Prominence */
-        .instructor-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .instructor-image {
-            flex: 0 0 200px;
-        }
-        
-        .instructor-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .instructor-image:hover img {
-            transform: scale(1.02);
-        }
-        
-        .instructor-info h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-        
-        .instructor-info p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--text-color);
-        }
-        
-        .instructor-contact {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-        }
-        
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-link:hover {
-            color: #1a73e8;
-            transform: translateY(-2px);
-        }
-        
-        /* Section Title */
         .section-title {
             text-align: center;
-            margin-bottom: 4rem;
+            margin-bottom: 3rem;
         }
         
         .section-title h2 {
-            font-size: 2.5rem;
+            font-size: 2rem;
             margin-bottom: 1rem;
             color: var(--primary-color);
             font-family: 'Montserrat', sans-serif;
@@ -374,69 +261,17 @@
         }
         
         .section-title p {
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--dark-gray);
             max-width: 700px;
             margin: 0 auto;
             font-weight: 500;
         }
         
-        /* Tabs */
-        .tabs {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 3rem;
-            border-bottom: 2px solid var(--light-gray);
-            flex-wrap: wrap;
-            background-color: white;
-            padding: 0 1rem;
-            border-radius: 10px 10px 0 0;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
-        }
-        
-        .tab {
-            padding: 1rem 2rem;
-            cursor: pointer;
-            border-bottom: 4px solid transparent;
-            transition: all 0.3s ease;
-            font-weight: 600;
-            color: var(--dark-gray);
-            position: relative;
-        }
-        
-        .tab:hover {
-            color: var(--primary-color);
-            background-color: rgba(10, 79, 163, 0.05);
-        }
-        
-        .tab.active {
-            border-bottom-color: var(--primary-color);
-            color: var(--primary-color);
-            background-color: rgba(10, 79, 163, 0.05);
-        }
-        
-        .tab-content {
-            display: none;
-            animation: fadeIn 0.5s ease;
-            background-color: white;
-            border-radius: 0 0 10px 10px;
-            padding: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
-        }
-        
-        .tab-content.active {
-            display: block;
-        }
-        
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(10px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Content Cards */
+        /* Tarjetas genéricas reutilizables */
         .content-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
             gap: 2rem;
         }
         
@@ -457,9 +292,9 @@
         
         .card-header {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             gap: 1rem;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1.2rem;
         }
         
         .card-icon {
@@ -472,10 +307,11 @@
             justify-content: center;
             color: var(--primary-color);
             font-size: 1.5rem;
+            flex-shrink: 0;
         }
         
         .card-title {
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-weight: 700;
             color: var(--primary-color);
         }
@@ -484,14 +320,10 @@
             color: var(--text-color);
             line-height: 1.7;
             font-weight: 500;
+            font-size: 0.95rem;
         }
         
-        /* Detailed Program Styles */
-        .program-detailed {
-            max-width: 100%;
-            margin: 0 auto;
-        }
-        
+        /* Bloques temáticos de la unidad */
         .unit-section {
             background-color: white;
             border-radius: 15px;
@@ -532,7 +364,7 @@
         }
         
         .unit-title {
-            font-size: 1.5rem;
+            font-size: 1.4rem;
             font-weight: 700;
             font-family: 'Montserrat', sans-serif;
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
@@ -579,7 +411,7 @@
         .topic-content h4 {
             color: var(--primary-color);
             margin-bottom: 0.5rem;
-            font-size: 1.1rem;
+            font-size: 1.05rem;
             font-weight: 700;
         }
         
@@ -587,6 +419,7 @@
             color: var(--text-color);
             line-height: 1.6;
             font-weight: 500;
+            font-size: 0.95rem;
         }
         
         .subtopics {
@@ -599,105 +432,83 @@
             align-items: flex-start;
             gap: 0.5rem;
             margin-bottom: 0.5rem;
+            font-size: 0.95rem;
         }
         
         .subtopic-bullet {
             color: var(--primary-color);
-            margin-top: 0.5rem;
+            margin-top: 0.45rem;
             font-weight: 700;
         }
         
-        .subtopic-item div {
-            color: var(--text-color);
-            font-weight: 500;
+        /* Instructor */
+        .instructor {
+            padding: 4rem 0;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid var(--light-gray);
         }
         
-        /* Schedule Section */
-        .schedule-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 1.5rem;
-            margin-top: 3rem;
-        }
-        
-        .schedule-item {
-            background-color: white;
-            border-radius: 12px;
-            padding: 1.5rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            border-left: 4px solid var(--primary-color);
-            border: 1px solid var(--light-gray);
-        }
-        
-        .schedule-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .schedule-number {
-            display: inline-block;
-            width: 30px;
-            height: 30px;
-            background-color: var(--primary-color);
-            color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 30px;
-            font-weight: 700;
-            margin-bottom: 1rem;
-        }
-        
-        .schedule-title {
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.1rem;
-        }
-        
-        .schedule-item p {
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        
-        /* Requirements Section */
-        .requirements-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        .instructor-content {
+            display: flex;
+            align-items: center;
             gap: 2rem;
-            margin-top: 3rem;
+            max-width: 900px;
+            margin: 0 auto;
         }
         
-        .requirement-card {
-            background: linear-gradient(135deg, var(--primary-color), #1a73e8);
-            color: white;
-            border-radius: 15px;
-            padding: 2rem;
-            box-shadow: 0 10px 30px rgba(10, 79, 163, 0.3);
-            transition: all 0.3s ease;
-            height: 100%;
+        .instructor-image {
+            flex: 0 0 200px;
         }
         
-        .requirement-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(10, 79, 163, 0.4);
+        .instructor-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
         }
         
-        .requirement-icon {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-            opacity: 0.9;
+        .instructor-image:hover img {
+            transform: scale(1.02);
         }
         
-        .requirement-title {
-            font-size: 1.3rem;
-            font-weight: 700;
+        .instructor-info h2 {
+            color: var(--primary-color);
             margin-bottom: 1rem;
+            font-size: 1.6rem;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
         }
         
-        .requirement-card p {
+        .instructor-info p {
+            margin-bottom: 1rem;
+            font-size: 1rem;
+            line-height: 1.6;
+            color: var(--text-color);
             font-weight: 500;
-            opacity: 0.95;
+        }
+        
+        .instructor-contact {
+            display: flex;
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            color: #1a73e8;
+            transform: translateY(-2px);
         }
         
         /* Footer */
@@ -718,7 +529,7 @@
         
         .footer-section h3 {
             margin-bottom: 1.5rem;
-            font-size: 1.3rem;
+            font-size: 1.2rem;
             font-family: 'Montserrat', sans-serif;
         }
         
@@ -731,6 +542,7 @@
             display: flex;
             align-items: center;
             gap: 0.8rem;
+            font-size: 0.95rem;
         }
         
         .footer-section ul li a {
@@ -747,6 +559,7 @@
         .footer-section p {
             font-weight: 500;
             opacity: 0.9;
+            font-size: 0.95rem;
         }
         
         .footer-bottom {
@@ -773,7 +586,11 @@
             }
             
             .hero h1 {
-                font-size: 2.5rem;
+                font-size: 2.2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
             }
             
             .instructor-content {
@@ -784,1014 +601,442 @@
             .instructor-contact {
                 justify-content: center;
             }
-            
-            .tabs {
-                flex-wrap: wrap;
-            }
-            
-            .software-icons {
-                gap: 1.5rem;
-            }
-            
-            .unit-header {
-                padding: 1rem 1.5rem;
-            }
-            
-            .unit-title {
-                font-size: 1.2rem;
-            }
-            
-            .unit-content {
-                padding: 1.5rem;
-            }
         }
     </style>
 </head>
 <body>
-    <!-- Particle Background Canvas -->
     <canvas id="particles-canvas"></canvas>
 
     <!-- Header -->
     <header>
         <div class="container header-content">
             <div class="logo-container">
-                <img src="FACEN_LOGO.jpg" alt="FACEN Logo" class="facen-logo">
-                <div class="logo">Softwares Estadísticos</div>
+                <img src="../FACEN_LOGO.jpg" alt="FACEN Logo" class="facen-logo">
+                <div class="logo">
+                    <div class="main-title">Unidad 1</div>
+                    <div class="sub-title">Aspectos Generales de los Softwares Estadísticos</div>
+                </div>
             </div>
             <nav>
                 <ul>
-                    <li><a href="#inicio">Inicio</a></li>
-                    <li><a href="#contenido">Contenido</a></li>
-                    <li><a href="#programa">Programa</a></li>
-                    <li><a href="#requisitos">Requisitos</a></li>
-                    <li><a href="#instructor">Instructor</a></li>
-                    <li><a href="#contacto">Contacto</a></li>
+                    <li><a href="../">Volver al índice del curso</a></li>
+                    <li><a href="#introduccion">Introducción</a></li>
+                    <li><a href="#objetivos">Objetivos</a></li>
+                    <li><a href="#temario">Temario</a></li>
+                    <li><a href="#materiales">Materiales</a></li>
+                    <li><a href="#actividad">Actividad</a></li>
+                    <li><a href="#docente">Docente</a></li>
                 </ul>
             </nav>
         </div>
     </header>
 
-    <!-- Hero Section -->
-    <section id="inicio" class="hero">
+    <!-- Hero -->
+    <section class="hero" id="introduccion">
         <div class="container">
             <div class="hero-content">
-                <div class="hero-badge">FACEN - Universidad Nacional de Asunción</div>
-                <h1>Softwares Estadísticos</h1>
-                <p>Domina las herramientas más poderosas para el análisis de datos: SPSS, Stata, R y Python</p>
+                <div class="hero-badge">FACEN, Universidad Nacional de Asunción</div>
+                <h1>Unidad 1, Aspectos Generales</h1>
+                <p>Definición, importancia, clasificación y comparación de los softwares estadísticos: SPSS, Stata, R y Python. Esta unidad establece las bases conceptuales y operativas del curso.</p>
                 
                 <div class="course-info">
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
-                        <div>3er Semestre</div>
+                        <div class="info-icon"><i class="fas fa-layer-group"></i></div>
+                        <div>Unidad 1 del programa</div>
                     </div>
                     <div class="info-item">
                         <div class="info-icon"><i class="fas fa-clock"></i></div>
-                        <div>16 Sesiones</div>
+                        <div>Duración estimada, 2 sesiones</div>
                     </div>
                     <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-certificate"></i></div>
-                        <div>8 Créditos</div>
+                        <div class="info-icon"><i class="fas fa-user-check"></i></div>
+                        <div>Modalidad, teórico, demostrativo</div>
                     </div>
                 </div>
-                
-                <div class="software-icons">
-                    <div class="software-icon">
-                        <div class="icon-circle">
-                            <i class="fas fa-chart-bar"></i>
-                        </div>
-                        <div class="icon-name">SPSS</div>
-                    </div>
-                    <div class="software-icon">
-                        <div class="icon-circle">
-                            <i class="fas fa-chart-line"></i>
-                        </div>
-                        <div class="icon-name">Stata</div>
-                    </div>
-                    <div class="software-icon">
-                        <div class="icon-circle">
-                            <i class="fab fa-r-project"></i>
-                        </div>
-                        <div class="icon-name">R</div>
-                    </div>
-                    <div class="software-icon">
-                        <div class="icon-circle">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <div class="icon-name">Python</div>
-                    </div>
-                </div>
-                
-                <a href="#contenido" class="btn">Explorar Curso</a>
+
+                <a href="#temario" class="btn">Ir al Temario Detallado</a>
             </div>
         </div>
     </section>
 
-    <!-- Course Content Section -->
-    <section id="contenido" class="course-content">
+    <!-- Objetivos de aprendizaje -->
+    <section class="section-block section-light" id="objetivos">
         <div class="container">
             <div class="section-title">
-                <h2>Contenido del Curso</h2>
-                <p>Explora los diferentes softwares estadísticos y sus aplicaciones en el análisis de datos</p>
+                <h2>Resultados de aprendizaje de la Unidad</h2>
+                <p>Al finalizar esta unidad el estudiante debe comprender qué problema resuelve cada software y en qué contexto conviene usarlo</p>
             </div>
-            
-            <div class="tabs">
-                <div class="tab active" onclick="openTab(event, 'general')">Aspectos Generales</div>
-                <div class="tab" onclick="openTab(event, 'spss')">SPSS</div>
-                <div class="tab" onclick="openTab(event, 'stata')">Stata</div>
-                <div class="tab" onclick="openTab(event, 'r')">R</div>
-                <div class="tab" onclick="openTab(event, 'python')">Python</div>
-                <div class="tab" onclick="openTab(event, 'programa-detallado')">Programa Detallado</div>
-            </div>
-            
-            <div id="general" class="tab-content active">
-                <div class="content-grid">
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-desktop"></i></div>
-                            <div class="card-title">Definición</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Comprender qué son los softwares estadísticos y su importancia en el análisis de datos modernos.</p>
-                        </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
+                        <div class="card-title">Comprensión conceptual</div>
                     </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
-                            <div class="card-title">Comparación</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Análisis detallado de similitudes y diferencias entre SPSS, Stata, R y Python.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-thumbs-up"></i></div>
-                            <div class="card-title">Ventajas</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Identificar las ventajas y desventajas de cada software según el tipo de análisis requerido.</p>
-                        </div>
+                    <div class="card-content">
+                        Identificar qué es un software estadístico, diferenciar software propietario y software libre y explicar la importancia del análisis reproducible y documentable.
                     </div>
                 </div>
-            </div>
-            
-            <div id="spss" class="tab-content">
-                <div class="content-grid">
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-download"></i></div>
-                            <div class="card-title">Instalación</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Paso a paso para instalar y configurar SPSS en tu sistema operativo.</p>
-                        </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
+                        <div class="card-title">Comparación crítica</div>
                     </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-window-maximize"></i></div>
-                            <div class="card-title">Entorno de Trabajo</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Familiarización con las ventanas principales y el entorno de trabajo de SPSS.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-database"></i></div>
-                            <div class="card-title">Manipulación de Datos</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Técnicas para importar, limpiar y transformar datos en SPSS.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-search"></i></div>
-                            <div class="card-title">Análisis Exploratorio</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Realización de análisis descriptivos y exploratorios con SPSS.</p>
-                        </div>
+                    <div class="card-content">
+                        Reconocer las principales fortalezas y limitaciones de SPSS, Stata, R y Python en términos de costo, curva de aprendizaje, automatización, replicabilidad, manejo de datos y análisis estadístico.
                     </div>
                 </div>
-            </div>
-            
-            <div id="stata" class="tab-content">
-                <div class="content-grid">
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-download"></i></div>
-                            <div class="card-title">Instalación</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Guía completa para instalar Stata y configurar el entorno inicial.</p>
-                        </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-sitemap"></i></div>
+                        <div class="card-title">Mapa de uso profesional</div>
                     </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-terminal"></i></div>
-                            <div class="card-title">Comandos Básicos</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Aprendizaje de la sintaxis y comandos fundamentales de Stata.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-table"></i></div>
-                            <div class="card-title">Gestión de Datos</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Técnicas avanzadas para manejar y transformar bases de datos.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-chart-pie"></i></div>
-                            <div class="card-title">Análisis Estadístico</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Aplicación de pruebas estadísticas y modelado con Stata.</p>
-                        </div>
+                    <div class="card-content">
+                        Asociar cada software con ámbitos de aplicación típicos, por ejemplo investigación académica, análisis actuarial, evaluación de políticas públicas, analítica empresarial, ciencia de datos.
                     </div>
                 </div>
-            </div>
-            
-            <div id="r" class="tab-content">
-                <div class="content-grid">
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-download"></i></div>
-                            <div class="card-title">Instalación</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Instalación de R y RStudio para un entorno de desarrollo óptimo.</p>
-                        </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-check-circle"></i></div>
+                        <div class="card-title">Criterios de selección</div>
                     </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-code"></i></div>
-                            <div class="card-title">Estructuras de Datos</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Creación y manejo de vectores, listas, arrays y data frames.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-puzzle-piece"></i></div>
-                            <div class="card-title">Paquetes</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Instalación y uso de paquetes adicionales para análisis especializados.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-file-alt"></i></div>
-                            <div class="card-title">R Markdown</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Creación de documentos reproducibles con R Markdown.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div id="python" class="tab-content">
-                <div class="content-grid">
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-download"></i></div>
-                            <div class="card-title">Instalación</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Configuración de Python y librerías especializadas para análisis estadístico.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-list-ol"></i></div>
-                            <div class="card-title">Estructuras de Datos</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Trabajo con listas, arrays y data frames usando NumPy y Pandas.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-chart-area"></i></div>
-                            <div class="card-title">Visualización</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Creación de gráficos estadísticos con Matplotlib y Seaborn.</p>
-                        </div>
-                    </div>
-                    <div class="content-card">
-                        <div class="card-header">
-                            <div class="card-icon"><i class="fas fa-flask"></i></div>
-                            <div class="card-title">Análisis Estadístico</div>
-                        </div>
-                        <div class="card-content">
-                            <p>Aplicación de pruebas estadísticas y modelado con SciPy y Statsmodels.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Detailed Program Tab -->
-            <div id="programa-detallado" class="tab-content">
-                <div class="program-detailed">
-                    <!-- Unit I -->
-                    <div class="unit-section">
-                        <div class="unit-header">
-                            <div class="unit-number">I</div>
-                            <div class="unit-title">Aspectos generales de los softwares estadísticos</div>
-                        </div>
-                        <div class="unit-content">
-                            <ul class="topic-list">
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-book"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Definición de Software estadístico</h4>
-                                        <p>Introducción al concepto de software estadístico y su evolución histórica en el análisis de datos.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-star"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Importancia de los softwares estadísticos</h4>
-                                        <p>Análisis del rol fundamental que juegan estas herramientas en la investigación científica y la toma de decisiones basada en datos.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-desktop"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Descripción general de los softwares SPSS, Stata, R y Python</h4>
-                                        <p>Presentación detallada de cada plataforma, sus características principales y campos de aplicación específicos.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-balance-scale"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Comparación entre los cuatro softwares</h4>
-                                        <p>Análisis comparativo considerando aspectos como curva de aprendizaje, costos, capacidades y comunidad de usuarios.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-thumbs-up"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Ventajas y desventajas</h4>
-                                        <p>Evaluación crítica de fortalezas y limitaciones de cada software según diferentes tipos de análisis y necesidades del usuario.</p>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Unit II -->
-                    <div class="unit-section">
-                        <div class="unit-header">
-                            <div class="unit-number">II</div>
-                            <div class="unit-title">Software SPSS</div>
-                        </div>
-                        <div class="unit-content">
-                            <ul class="topic-list">
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-download"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Instalación de SPSS</h4>
-                                        <p>Guía paso a paso para la instalación y configuración inicial del software en diferentes sistemas operativos.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-window-maximize"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Ventanas de SPSS</h4>
-                                        <p>Exploración detallada de las ventanas principales: Editor de datos, Visor de resultados, Sintaxis y gráficos.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-cogs"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Entornos de trabajo</h4>
-                                        <p>Configuración de espacios de trabajo personalizados según el tipo de análisis a realizar.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-database"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Manipulación de datos</h4>
-                                        <p>Técnicas avanzadas para:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Importación desde diferentes formatos (Excel, CSV, bases de datos)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Limpieza y transformación de variables</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Creación de nuevas variables mediante cálculos</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Filtrado y selección de casos</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-search"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Análisis Exploratorio</h4>
-                                        <p>Aplicación de técnicas estadísticas descriptivas:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Medidas de tendencia central y dispersión</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Análisis de frecuencias y tablas de contingencia</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Visualización de datos mediante gráficos</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Pruebas de normalidad y homogeneidad</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Unit III -->
-                    <div class="unit-section">
-                        <div class="unit-header">
-                            <div class="unit-number">III</div>
-                            <div class="unit-title">Software Stata</div>
-                        </div>
-                        <div class="unit-content">
-                            <ul class="topic-list">
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-download"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Instalación de Stata</h4>
-                                        <p>Proceso de instalación y configuración inicial, incluyendo actualización y gestión de licencias.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-window-maximize"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Ventanas de Stata</h4>
-                                        <p>Familiarización con la interfaz: ventana de comandos, ventana de resultados, ventana de revisión y editor de datos.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-cogs"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Entornos de trabajo</h4>
-                                        <p>Configuración del entorno de trabajo para optimizar la productividad en el análisis estadístico.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-database"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Manipulación de datos</h4>
-                                        <p>Comandos y técnicas especializadas:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Importación y exportación de datos (import, export)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Generación y modificación de variables (generate, replace, egen)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Combinación de bases de datos (merge, append)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Trabajo con datos panel y series temporales</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-search"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Análisis Exploratorio</h4>
-                                        <p>Procedimientos estadísticos en Stata:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Estadísticas descriptivas (summarize, tabstat)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Tablas de frecuencia y tabulaciones cruzadas (tabulate)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Gráficos estadísticos (histograma, boxplot, scatter)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Pruebas de hipótesis básicas</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Unit IV -->
-                    <div class="unit-section">
-                        <div class="unit-header">
-                            <div class="unit-number">IV</div>
-                            <div class="unit-title">Software R</div>
-                        </div>
-                        <div class="unit-content">
-                            <ul class="topic-list">
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-download"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Descarga e instalación de R</h4>
-                                        <p>Instalación de R base y configuración del entorno de desarrollo RStudio para mayor productividad.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-window-maximize"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Ventanas e interfaces</h4>
-                                        <p>Exploración de la interfaz de RStudio: consola, editor de scripts, entorno, historial, gráficos y ayuda.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-puzzle-piece"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Paquetes adicionales</h4>
-                                        <p>Gestión de paquetes en R:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Instalación desde CRAN (install.packages)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Carga de paquetes (library, require)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Actualización y gestión de dependencias</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Paquetes populares para análisis estadístico</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-code"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Primeros pasos</h4>
-                                        <p>Conceptos fundamentales de programación en R:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Sintaxis básica y operadores</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Funciones predefinidas y creación de funciones personalizadas</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Estructuras de control (if, for, while)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Buenas prácticas de programación</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-list-ol"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Creación de estructuras de datos</h4>
-                                        <p>Tipos de datos fundamentales en R:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Vectores (numéricos, carácter, lógicos)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Matrices y arrays multidimensionales</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Listas y estructuras anidadas</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Data frames y tibbles</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-tags"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Creación de factores y data frame</h4>
-                                        <p>Manejo de variables categóricas y estructuras tabulares:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Creación y manipulación de factores</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Construcción de data frames desde diferentes fuentes</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Indexación y subsetting de data frames</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Unión y combinación de data frames</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-database"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Manipulación de datos</h4>
-                                        <p>Técnicas avanzadas con dplyr y tidyverse:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Selección y filtrado de datos (select, filter)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Transformación y creación de variables (mutate)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Ordenamiento y agrupación (arrange, group_by)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Resumen de datos (summarise)</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-search"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Análisis Exploratorio</h4>
-                                        <p>Herramientas para exploración de datos en R:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Estadísticas descriptivas básicas (summary, str)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Visualización con ggplot2</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Análisis de correlación y asociación</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Detección de valores atípicos</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-file-alt"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Introducción a R Markdown</h4>
-                                        <p>Creación de documentos reproducibles:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Estructura básica de un documento R Markdown</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Incorporación de código R y resultados</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Formatos de salida (HTML, PDF, Word)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Personalización de informes</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                    
-                    <!-- Unit V -->
-                    <div class="unit-section">
-                        <div class="unit-header">
-                            <div class="unit-number">V</div>
-                            <div class="unit-title">Software Python</div>
-                        </div>
-                        <div class="unit-content">
-                            <ul class="topic-list">
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-download"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Descarga e instalación de Python</h4>
-                                        <p>Instalación de Python y configuración del entorno científico con Anaconda o pip.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-window-maximize"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Ventanas e interfaces</h4>
-                                        <p>Exploración de IDEs y notebooks: Jupyter Notebook, JupyterLab, Spyder y VS Code.</p>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-puzzle-piece"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Paquetes adicionales</h4>
-                                        <p>Gestión de librerías para análisis estadístico:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Instalación con pip y conda</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Entornos virtuales (venv, conda env)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Librerías esenciales: NumPy, Pandas, Matplotlib, Seaborn</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Librerías especializadas: SciPy, Statsmodels, Scikit-learn</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-code"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Primeros pasos</h4>
-                                        <p>Fundamentos de programación en Python:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Sintaxis básica y tipos de datos</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Estructuras de control y funciones</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Programación orientada a objetos básica</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Buenas prácticas y estilo PEP 8</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-list-ol"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Creación de estructuras de datos</h4>
-                                        <p>Estructuras fundamentales con NumPy y Pandas:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Arrays NumPy y operaciones vectorizadas</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Series y DataFrames de Pandas</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Indexación y selección avanzada</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Manejo de datos faltantes</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-tags"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Creación de factores y data frame</h4>
-                                        <p>Manejo de variables categóricas y estructuras tabulares:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Variables categóricas con Pandas (category dtype)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Construcción de DataFrames desde diferentes fuentes</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Indexación jerárquica y multiíndice</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Combinación y unión de DataFrames</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-database"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Manipulación de datos</h4>
-                                        <p>Técnicas de transformación con Pandas:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Selección y filtrado condicional</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Aplicación de funciones (apply, map)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Agrupación y agregación (groupby)</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Transformación de series temporales</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                                <li class="topic-item">
-                                    <div class="topic-icon"><i class="fas fa-search"></i></div>
-                                    <div class="topic-content">
-                                        <h4>Análisis Exploratorio</h4>
-                                        <p>Herramientas estadísticas y de visualización:</p>
-                                        <div class="subtopics">
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Estadísticas descriptivas con Pandas</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Visualización con Matplotlib y Seaborn</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Análisis de correlación y covarianza</div>
-                                            </div>
-                                            <div class="subtopic-item">
-                                                <div class="subtopic-bullet">•</div>
-                                                <div>Pruebas estadísticas con SciPy y Statsmodels</div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                    <div class="card-content">
+                        Formular criterios técnicos para justificar la elección de una herramienta en un informe profesional.
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Schedule Section -->
-    <section id="programa" class="schedule">
+    <!-- Temario Detallado de la Unidad -->
+    <section class="section-block section-white" id="temario">
         <div class="container">
             <div class="section-title">
-                <h2>Programa del Curso</h2>
-                <p>Unidades temáticas y contenidos fundamentales</p>
+                <h2>Temario de la Unidad 1</h2>
+                <p>Contenido estructurado en cinco ejes temáticos</p>
             </div>
-            
-            <div class="schedule-grid">
-                <div class="schedule-item">
-                    <div class="schedule-number">1</div>
-                    <div class="schedule-title">Aspectos Generales</div>
-                    <p>Introducción a los softwares estadísticos, su importancia y comparación entre las principales herramientas.</p>
+
+            <div class="unit-section">
+                <div class="unit-header">
+                    <div class="unit-number">1</div>
+                    <div class="unit-title">Definición y rol de los softwares estadísticos</div>
                 </div>
-                <div class="schedule-item">
-                    <div class="schedule-number">2</div>
-                    <div class="schedule-title">Software SPSS</div>
-                    <p>Instalación, entorno de trabajo, manipulación de datos y análisis exploratorio con SPSS.</p>
+                <div class="unit-content">
+                    <ul class="topic-list">
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-book"></i></div>
+                            <div class="topic-content">
+                                <h4>Qué es un software estadístico</h4>
+                                <p>Concepto de software estadístico como herramienta para gestión, análisis, modelado e inferencia estadística sobre datos estructurados y semiestructurados.</p>
+                            </div>
+                        </li>
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-history"></i></div>
+                            <div class="topic-content">
+                                <h4>Evolución histórica</h4>
+                                <p>De las calculadoras programables y paquetes cerrados orientados a encuestas, a los ecosistemas abiertos y reproducibles que combinan estadística y programación.</p>
+                            </div>
+                        </li>
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-star"></i></div>
+                            <div class="topic-content">
+                                <h4>Importancia actual</h4>
+                                <p>Necesidad de análisis reproducible, auditoría técnica y trazabilidad de resultados en ámbitos académicos, de gobierno y del sector privado.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="schedule-item">
-                    <div class="schedule-number">3</div>
-                    <div class="schedule-title">Software Stata</div>
-                    <p>Instalación, comandos, entorno de trabajo y técnicas de análisis con Stata.</p>
+            </div>
+
+            <div class="unit-section">
+                <div class="unit-header">
+                    <div class="unit-number">2</div>
+                    <div class="unit-title">Panorama de las herramientas del curso</div>
                 </div>
-                <div class="schedule-item">
-                    <div class="schedule-number">4</div>
-                    <div class="schedule-title">Software R</div>
-                    <p>Instalación, estructuras de datos, paquetes, manipulación y análisis con R.</p>
+                <div class="unit-content">
+                    <ul class="topic-list">
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-chart-bar"></i></div>
+                            <div class="topic-content">
+                                <h4>SPSS</h4>
+                                <p>Entorno gráfico orientado a usuarios aplicados, con fuerte presencia en ciencias sociales, salud pública y psicometría. Enfoque en análisis descriptivo, regresión clásica y tablas de resultados listos para informes.</p>
+                            </div>
+                        </li>
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-chart-line"></i></div>
+                            <div class="topic-content">
+                                <h4>Stata</h4>
+                                <p>Plataforma muy utilizada en economía laboral, demografía y evaluación de impacto. Sintaxis compacta, rutinas estables para datos de encuestas y panel, amplia documentación técnica.</p>
+                            </div>
+                        </li>
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fab fa-r-project"></i></div>
+                            <div class="topic-content">
+                                <h4>R</h4>
+                                <p>Lenguaje libre orientado a estadística. Ecosistema CRAN y Bioconductor. Alto nivel de personalización, visualización avanzada, generación automatizada de informes reproducibles.</p>
+                            </div>
+                        </li>
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fab fa-python"></i></div>
+                            <div class="topic-content">
+                                <h4>Python</h4>
+                                <p>Lenguaje multipropósito para ciencia de datos, automatización y machine learning. Integración natural con entornos de producción, APIs, web y dashboards interactivos.</p>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
-                <div class="schedule-item">
-                    <div class="schedule-number">5</div>
-                    <div class="schedule-title">Software Python</div>
-                    <p>Instalación, librerías, estructuras de datos y análisis estadístico con Python.</p>
+            </div>
+
+            <div class="unit-section">
+                <div class="unit-header">
+                    <div class="unit-number">3</div>
+                    <div class="unit-title">Comparación técnica entre SPSS, Stata, R y Python</div>
+                </div>
+                <div class="unit-content">
+                    <ul class="topic-list">
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-user-graduate"></i></div>
+                            <div class="topic-content">
+                                <h4>Curva de aprendizaje</h4>
+                                <p>Interfaces gráficas frente a lenguajes de scripting. Dependencia de menús frente a capacidad de automatizar análisis repetitivos.</p>
+                                <div class="subtopics">
+                                    <div class="subtopic-item">
+                                        <div class="subtopic-bullet">•</div>
+                                        <div>SPSS, accesible sin programar</div>
+                                    </div>
+                                    <div class="subtopic-item">
+                                        <div class="subtopic-bullet">•</div>
+                                        <div>Stata, comandos directos documentables</div>
+                                    </div>
+                                    <div class="subtopic-item">
+                                        <div class="subtopic-bullet">•</div>
+                                        <div>R y Python, requieren lógica de programación</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <div class="topic-content">
+                                <h4>Licenciamiento y costo</h4>
+                                <p>Modelos comerciales frente a software libre. Implicancias para laboratorios de docencia, consultoría independiente y uso institucional.</p>
+                            </div>
+                        </li>
+
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-sync-alt"></i></div>
+                            <div class="topic-content">
+                                <h4>Reproducibilidad</h4>
+                                <p>Registro transparente de cada paso analítico. Ventajas de trabajar con scripts versionables frente a flujos manuales basados en clics.</p>
+                            </div>
+                        </li>
+
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-database"></i></div>
+                            <div class="topic-content">
+                                <h4>Manejo de datos</h4>
+                                <p>Capacidad de tratar datos grandes, fusionar múltiples orígenes, limpiar variables y generar nuevas estructuras analíticas.</p>
+                            </div>
+                        </li>
+
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-chart-pie"></i></div>
+                            <div class="topic-content">
+                                <h4>Capacidades estadísticas</h4>
+                                <p>Procedimientos clásicos (estadística descriptiva, regresión lineal y logística) frente a modelado avanzado (series temporales, panel, machine learning, simulaciones).</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="unit-section">
+                <div class="unit-header">
+                    <div class="unit-number">4</div>
+                    <div class="unit-title">Ventajas y limitaciones prácticas</div>
+                </div>
+                <div class="unit-content">
+                    <ul class="topic-list">
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-thumbs-up"></i></div>
+                            <div class="topic-content">
+                                <h4>Fortalezas</h4>
+                                <p>Rapidez para producir tablas publicables, capacidad de automatización, comunidad activa, integración con flujos de trabajo de investigación y con entornos productivos.</p>
+                            </div>
+                        </li>
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-triangle-exclamation"></i></div>
+                            <div class="topic-content">
+                                <h4>Limitaciones</h4>
+                                <p>Restricciones de licenciamiento, complejidad sintáctica inicial, problemas de compatibilidad entre versiones y la necesidad de documentar adecuadamente supuestos estadísticos.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="unit-section">
+                <div class="unit-header">
+                    <div class="unit-number">5</div>
+                    <div class="unit-title">Conclusiones de la Unidad 1</div>
+                </div>
+                <div class="unit-content">
+                    <ul class="topic-list">
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-lightbulb"></i></div>
+                            <div class="topic-content">
+                                <h4>Elección informada de herramienta</h4>
+                                <p>La selección del software no es una cuestión de gusto personal sino de adecuación técnica a la pregunta estadística, al tipo de datos y al entorno institucional en el que se trabaja.</p>
+                            </div>
+                        </li>
+                        <li class="topic-item">
+                            <div class="topic-icon"><i class="fas fa-file-signature"></i></div>
+                            <div class="topic-content">
+                                <h4>Base para las siguientes unidades</h4>
+                                <p>Este marco conceptual habilita el trabajo práctico en SPSS, Stata, R y Python en las unidades siguientes.</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Materiales de apoyo -->
+    <section class="section-block section-light" id="materiales">
+        <div class="container">
+            <div class="section-title">
+                <h2>Materiales de la Unidad</h2>
+                <p>Documentos guía y recursos iniciales recomendados</p>
+            </div>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
+                        <div class="card-title">Presentación de la Unidad 1</div>
+                    </div>
+                    <div class="card-content">
+                        Diapositivas introductorias sobre tipos de softwares estadísticos, licenciamiento, reproducibilidad y ámbitos de aplicación.
+                        <br><br>
+                        <strong>Formato</strong>, PDF
+                        <br>
+                        <strong>Uso</strong>, lectura previa y apoyo en clase
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-file-word"></i></div>
+                        <div class="card-title">Guía comparativa</div>
+                    </div>
+                    <div class="card-content">
+                        Documento con tabla comparativa entre SPSS, Stata, R y Python, costo aproximado, principales comandos o interfaces y tipo de salida habitual.
+                        <br><br>
+                        <strong>Formato</strong>, documento de apoyo
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-book-open"></i></div>
+                        <div class="card-title">Lectura sugerida</div>
+                    </div>
+                    <div class="card-content">
+                        Introducción a la reproductibilidad estadística, noción de script, bitácora analítica y auditoría técnica de resultados.
+                        <br><br>
+                        <strong>Objetivo</strong>, comprender por qué el registro del código es parte del trabajo profesional
+                    </div>
+                </div>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-link"></i></div>
+                        <div class="card-title">Enlaces útiles</div>
+                    </div>
+                    <div class="card-content">
+                        - Página oficial de descarga de R y RStudio<br>
+                        - Página oficial de Python / Anaconda<br>
+                        - Manual introductorio de Stata<br>
+                        - Documentación de SPSS para análisis descriptivo
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Requirements Section -->
-    <section id="requisitos" class="requirements">
+    <!-- Actividad práctica -->
+    <section class="section-block section-white" id="actividad">
         <div class="container">
             <div class="section-title">
-                <h2>Información del Curso</h2>
-                <p>Todo lo que necesitas saber sobre esta asignatura</p>
+                <h2>Actividad Práctica Inicial</h2>
+                <p>Aplicación orientada a análisis real</p>
             </div>
-            
-            <div class="requirements-grid">
-                <div class="requirement-card">
-                    <div class="requirement-icon"><i class="fas fa-book"></i></div>
-                    <div class="requirement-title">Carrera</div>
-                    <p>Licenciatura en Ciencias Mención Matemática Estadística - Plan 2023</p>
+
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-tasks"></i></div>
+                        <div class="card-title">Tarea 1, Reconocimiento de entorno</div>
+                    </div>
+                    <div class="card-content">
+                        El estudiante debe identificar en qué sectores profesionales cree que se usa más cada software, justificar su respuesta y señalar un área de interés personal en la cual le gustaría especializarse.
+                    </div>
                 </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon"><i class="fas fa-layer-group"></i></div>
-                    <div class="requirement-title">Semestre</div>
-                    <p>Tercer semestre - 16 sesiones totales</p>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
+                        <div class="card-title">Criterio de evaluación</div>
+                    </div>
+                    <div class="card-content">
+                        Se evalúa la capacidad de argumentar técnicamente la elección de herramienta, no solo la preferencia subjetiva. Se espera una justificación breve y clara basada en costo, reproducibilidad y ámbito de aplicación.
+                    </div>
                 </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon"><i class="fas fa-clock"></i></div>
-                    <div class="requirement-title">Horario</div>
-                    <p>5 horas semanales (3 teóricas, 2 prácticas)</p>
-                </div>
-                <div class="requirement-card">
-                    <div class="requirement-icon"><i class="fas fa-award"></i></div>
-                    <div class="requirement-title">Créditos</div>
-                    <p>8 créditos - Sin prerrequisitos</p>
+
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-upload"></i></div>
+                        <div class="card-title">Entrega</div>
+                    </div>
+                    <div class="card-content">
+                        Entrega individual en formato PDF o Word, 1 a 2 páginas, con identificación del alumno. El docente puede solicitar la entrega vía formulario o aula virtual institucional.
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Instructor Section - Moved to End with Reduced Prominence -->
-    <section id="instructor" class="instructor">
+    <!-- Docente -->
+    <section class="instructor" id="docente">
         <div class="container">
             <div class="section-title">
-                <h2>Sobre el Instructor</h2>
-                <p>Conoce al experto que guiará tu aprendizaje</p>
+                <h2>Docente Responsable</h2>
+                <p>Referencia académica y de contacto</p>
             </div>
             
             <div class="instructor-content">
                 <div class="instructor-image">
-                    <img src="imagenCV.jpeg" alt="Diego Bernardo Meza Bogado">
+                    <img src="../imagenCV.jpeg" alt="Diego Bernardo Meza Bogado">
                 </div>
                 <div class="instructor-info">
                     <h2>Diego Bernardo Meza Bogado</h2>
-                    <p><strong>Estadístico | Docente Universitario | Especialista en Análisis de Datos</strong></p>
-                    <p>Con más de 15 años de experiencia en gestión y análisis de datos, y 14 años en docencia universitaria, soy un experto en la aplicación de herramientas estadísticas para el análisis de datos complejos.</p>
+                    <p><strong>Estadístico. Docente universitario. Especialista en análisis de datos.</strong></p>
+                    <p>Experiencia profesional en análisis de datos administrativos, encuestas de hogares, modelización actuarial y desarrollo de tableros analíticos aplicados a gestión pública y salud.</p>
                     
                     <div class="instructor-contact">
                         <a href="mailto:dmeza@facen.una.py" class="contact-link">
                             <i class="fas fa-envelope"></i>
-                            Contactar
+                            Contacto académico
                         </a>
                         <a href="https://www.linkedin.com/in/diego-meza/" target="_blank" class="contact-link">
                             <i class="fab fa-linkedin"></i>
-                            LinkedIn
+                            Perfil profesional
                         </a>
                     </div>
                 </div>
@@ -1804,16 +1049,19 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-section">
-                    <h3>Softwares Estadísticos</h3>
-                    <p>Asignatura electiva de la Facultad de Ciencias Exactas y Naturales - Universidad Nacional de Asunción</p>
+                    <h3>Unidad 1</h3>
+                    <p>Aspectos Generales de los Softwares Estadísticos. Carrera Licenciatura en Ciencias Mención Matemática Estadística, FACEN, UNA.</p>
                 </div>
                 <div class="footer-section">
-                    <h3>Enlaces Rápidos</h3>
+                    <h3>Navegación</h3>
                     <ul>
-                        <li><a href="#inicio">Inicio</a></li>
-                        <li><a href="#contenido">Contenido</a></li>
-                        <li><a href="#programa">Programa</a></li>
-                        <li><a href="#requisitos">Requisitos</a></li>
+                        <li><a href="#introduccion"><i class="fas fa-home"></i> Introducción</a></li>
+                        <li><a href="#objetivos"><i class="fas fa-bullseye"></i> Objetivos</a></li>
+                        <li><a href="#temario"><i class="fas fa-list-ul"></i> Temario</a></li>
+                        <li><a href="#materiales"><i class="fas fa-book"></i> Materiales</a></li>
+                        <li><a href="#actividad"><i class="fas fa-tasks"></i> Actividad</a></li>
+                        <li><a href="#docente"><i class="fas fa-user-tie"></i> Docente</a></li>
+                        <li><a href="../"><i class="fas fa-arrow-left"></i> Volver al índice</a></li>
                     </ul>
                 </div>
                 <div class="footer-section">
@@ -1826,7 +1074,7 @@
                     </ul>
                 </div>
                 <div class="footer-section">
-                    <h3>Softwares</h3>
+                    <h3>Herramientas cubiertas</h3>
                     <ul>
                         <li><i class="fas fa-chart-bar"></i> SPSS</li>
                         <li><i class="fas fa-chart-line"></i> Stata</li>
@@ -1836,26 +1084,23 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2023 FACEN - Universidad Nacional de Asunción | Softwares Estadísticos. Todos los derechos reservados.</p>
+                <p>&copy; 2025 FACEN, Universidad Nacional de Asunción. Softwares Estadísticos. Todos los derechos reservados.</p>
             </div>
         </div>
     </footer>
 
     <script>
-        // Enhanced Particle Animation
+        // Fondo de partículas
         const canvas = document.getElementById('particles-canvas');
         const ctx = canvas.getContext('2d');
         
-        // Set canvas size
         function setCanvasSize() {
             canvas.width = window.innerWidth;
             canvas.height = window.innerHeight;
         }
-        
         setCanvasSize();
         window.addEventListener('resize', setCanvasSize);
         
-        // Particle class with enhanced features
         class Particle {
             constructor() {
                 this.x = Math.random() * canvas.width;
@@ -1872,12 +1117,10 @@
                 this.x += this.speedX;
                 this.y += this.speedY;
                 
-                // Pulse effect
                 this.pulsePhase += this.pulseSpeed;
                 const pulseFactor = 1 + Math.sin(this.pulsePhase) * 0.2;
                 this.currentSize = this.size * pulseFactor;
                 
-                // Wrap around edges
                 if (this.x > canvas.width) this.x = 0;
                 else if (this.x < 0) this.x = canvas.width;
                 
@@ -1893,7 +1136,6 @@
             }
         }
         
-        // Create particles
         const particlesArray = [];
         const numberOfParticles = 120;
         
@@ -1903,14 +1145,12 @@
             }
         }
         
-        // Connect particles with enhanced lines
         function connect() {
             for (let a = 0; a < particlesArray.length; a++) {
                 for (let b = a; b < particlesArray.length; b++) {
-                    const distance = Math.sqrt(
-                        Math.pow(particlesArray[a].x - particlesArray[b].x, 2) +
-                        Math.pow(particlesArray[a].y - particlesArray[b].y, 2)
-                    );
+                    const dx = particlesArray[a].x - particlesArray[b].x;
+                    const dy = particlesArray[a].y - particlesArray[b].y;
+                    const distance = Math.sqrt(dx * dx + dy * dy);
                     
                     if (distance < 150) {
                         const opacity = 0.15 * (1 - distance / 150);
@@ -1925,7 +1165,6 @@
             }
         }
         
-        // Animation loop
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             
@@ -1940,37 +1179,8 @@
         
         init();
         animate();
-        
-        // Tab functionality
-        function openTab(evt, tabName) {
-            var i, tabcontent, tablinks;
-            
-            tabcontent = document.getElementsByClassName("tab-content");
-            for (i = 0; i < tabcontent.length; i++) {
-                tabcontent[i].classList.remove("active");
-            }
-            
-            tablinks = document.getElementsByClassName("tab");
-            for (i = 0; i < tablinks.length; i++) {
-                tablinks[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabName).classList.add("active");
-            evt.currentTarget.classList.add("active");
-        }
-        
-        // Smooth scrolling for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
-        
-        // Add scroll animations
+
+        // Animaciones on-scroll
         const observerOptions = {
             threshold: 0.1,
             rootMargin: '0px 0px -100px 0px'
@@ -1985,12 +1195,21 @@
             });
         }, observerOptions);
         
-        // Observe all cards
-        document.querySelectorAll('.content-card, .schedule-item, .requirement-card, .unit-section').forEach(card => {
+        document.querySelectorAll('.content-card, .unit-section').forEach(card => {
             card.style.opacity = '0';
             card.style.transform = 'translateY(20px)';
             card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(card);
+        });
+
+        // Scroll suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const destino = document.querySelector(this.getAttribute('href'));
+                if (!destino) return;
+                e.preventDefault();
+                destino.scrollIntoView({behavior: 'smooth'});
+            });
         });
     </script>
 </body>

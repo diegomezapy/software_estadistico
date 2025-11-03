@@ -1,1 +1,1053 @@
-aa
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unidad 1: Aspectos Generales de los Softwares Estadísticos - FACEN</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #0A4FA3;
+            --secondary-color: #4D4D4D;
+            --accent-color: #f8f9fa;
+            --text-color: #212529;
+            --light-gray: #e9ecef;
+            --dark-gray: #495057;
+            --success-color: #28a745;
+            --info-color: #17a2b8;
+            --warning-color: #ffc107;
+            --danger-color: #dc3545;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+            position: relative;
+            z-index: 10;
+        }
+        
+        /* Particle Background */
+        #particles-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: linear-gradient(135deg, #0A4FA3 0%, #1a73e8 50%, #0A4FA3 100%);
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: rgba(10, 79, 163, 0.95);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            font-family: 'Montserrat', sans-serif;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+        }
+        
+        .facen-logo {
+            height: 40px;
+            border-radius: 4px;
+        }
+        
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        
+        nav ul li {
+            margin-left: 1.5rem;
+        }
+        
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            position: relative;
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+        }
+        
+        nav ul li a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: white;
+            transition: width 0.3s ease;
+        }
+        
+        nav ul li a:hover::after {
+            width: 100%;
+        }
+        
+        /* Hero Section */
+        .hero {
+            color: white;
+            padding: 6rem 0;
+            text-align: center;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.3);
+            z-index: -1;
+        }
+        
+        .hero-content {
+            max-width: 900px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .hero-badge {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 0.6rem 1.8rem;
+            border-radius: 30px;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            font-size: 1rem;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+        }
+        
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+            font-weight: 500;
+        }
+        
+        .unit-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: rgba(255, 255, 255, 0.2);
+            padding: 0.8rem 1.5rem;
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            font-weight: 600;
+        }
+        
+        .info-icon {
+            font-size: 1.2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1.1rem;
+            margin-top: 2rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+        }
+        
+        /* Software Logos Section */
+        .software-logos {
+            display: flex;
+            justify-content: center;
+            gap: 4rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .software-logo-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.8rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .software-logo-item:hover {
+            transform: scale(1.1);
+        }
+        
+        .software-logo-img {
+            height: 70px;
+            width: auto;
+            filter: brightness(0) invert(1);
+            transition: all 0.3s ease;
+        }
+        
+        .software-logo-item:hover .software-logo-img {
+            filter: brightness(0) invert(1) drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+        }
+        
+        .software-name {
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+            font-size: 1.1rem;
+        }
+        
+        /* Section Backgrounds */
+        .content {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .topics {
+            padding: 5rem 0;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .resources {
+            padding: 5rem 0;
+            background-color: #f8f9fa;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .navigation {
+            padding: 4rem 0;
+            background-color: #ffffff;
+            position: relative;
+            z-index: 5;
+            border-top: 1px solid var(--light-gray);
+        }
+        
+        /* Section Title */
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 700;
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: var(--dark-gray);
+            max-width: 700px;
+            margin: 0 auto;
+            font-weight: 500;
+        }
+        
+        /* Content Cards */
+        .content-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .content-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--light-gray);
+        }
+        
+        .content-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 10px;
+            background-color: rgba(10, 79, 163, 0.1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-color);
+            font-size: 1.5rem;
+        }
+        
+        .card-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+        }
+        
+        .card-content {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        /* Topic Cards */
+        .topics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+        
+        .topic-card {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            padding: 2rem;
+            transition: all 0.3s ease;
+            height: 100%;
+            border: 1px solid var(--light-gray);
+            border-left: 4px solid var(--primary-color);
+        }
+        
+        .topic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+        }
+        
+        .topic-number {
+            display: inline-block;
+            width: 40px;
+            height: 40px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 40px;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .topic-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .topic-content {
+            color: var(--text-color);
+            line-height: 1.7;
+            font-weight: 500;
+        }
+        
+        .topic-content ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+        
+        .topic-content li {
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        
+        .topic-content li::before {
+            content: '•';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: 700;
+        }
+        
+        /* Resources Section */
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .resource-card {
+            background: linear-gradient(135deg, var(--primary-color), #1a73e8);
+            color: white;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(10, 79, 163, 0.3);
+            transition: all 0.3s ease;
+            height: 100%;
+        }
+        
+        .resource-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(10, 79, 163, 0.4);
+        }
+        
+        .resource-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .resource-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        
+        .resource-card p {
+            font-weight: 500;
+            opacity: 0.95;
+        }
+        
+        .resource-link {
+            display: inline-block;
+            background-color: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            text-decoration: none;
+            margin-top: 1rem;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        
+        .resource-link:hover {
+            background-color: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+        
+        /* Navigation */
+        .nav-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 3rem;
+            flex-wrap: wrap;
+        }
+        
+        .nav-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.8rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+            box-shadow: 0 4px 15px rgba(10, 79, 163, 0.3);
+        }
+        
+        .nav-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(10, 79, 163, 0.4);
+        }
+        
+        .nav-btn.secondary {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .nav-btn.secondary:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+            position: relative;
+            z-index: 5;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .footer-section ul {
+            list-style: none;
+        }
+        
+        .footer-section ul li {
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        
+        .footer-section ul li a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+            font-weight: 500;
+        }
+        
+        .footer-section ul li a:hover {
+            color: var(--accent-color);
+        }
+        
+        .footer-section p {
+            font-weight: 500;
+            opacity: 0.9;
+        }
+        
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+            
+            nav ul li {
+                margin: 0 0.5rem;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .software-logos {
+                gap: 2rem;
+            }
+            
+            .software-logo-img {
+                height: 50px;
+            }
+            
+            .nav-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particle Background Canvas -->
+    <canvas id="particles-canvas"></canvas>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-content">
+            <div class="logo-container">
+                <img src="https://raw.githubusercontent.com/diegomezapy/IA_en_el_aula_universitaria/main/FACEN_LOGO.jpg" alt="FACEN Logo" class="facen-logo">
+                <div class="logo">Softwares Estadísticos - Unidad 1</div>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#inicio">Inicio</a></li>
+                    <li><a href="#temas">Temas</a></li>
+                    <li><a href="#recursos">Recursos</a></li>
+                    <li><a href="#navegacion">Navegación</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">Unidad 1</div>
+                <h1>Aspectos Generales de los Softwares Estadísticos</h1>
+                <p>Explora los fundamentos de las herramientas estadísticas más importantes y su rol en el análisis de datos modernos</p>
+                
+                <div class="unit-info">
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-book"></i></div>
+                        <div>Unidad 1 de 5</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-clock"></i></div>
+                        <div>4 temas principales</div>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon"><i class="fas fa-graduation-cap"></i></div>
+                        <div>Fundamentos esenciales</div>
+                    </div>
+                </div>
+                
+                <div class="software-logos">
+                    <div class="software-logo-item">
+                        <img src="https://raw.githubusercontent.com/diegomezapy/IA_en_el_aula_universitaria/main/spss-logo.jpeg" alt="SPSS" class="software-logo-img">
+                        <div class="software-name">SPSS</div>
+                    </div>
+                    <div class="software-logo-item">
+                        <img src="https://raw.githubusercontent.com/diegomezapy/IA_en_el_aula_universitaria/main/stata-logo.jpeg" alt="Stata" class="software-logo-img">
+                        <div class="software-name">Stata</div>
+                    </div>
+                    <div class="software-logo-item">
+                        <img src="https://raw.githubusercontent.com/diegomezapy/IA_en_el_aula_universitaria/main/r-logo.jpeg" alt="R" class="software-logo-img">
+                        <div class="software-name">R</div>
+                    </div>
+                    <div class="software-logo-item">
+                        <img src="https://raw.githubusercontent.com/diegomezapy/IA_en_el_aula_universitaria/main/python-logo.jpeg" alt="Python" class="software-logo-img">
+                        <div class="software-name">Python</div>
+                    </div>
+                </div>
+                
+                <a href="#temas" class="btn">Explorar Contenido</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Content Section -->
+    <section id="temas" class="content">
+        <div class="container">
+            <div class="section-title">
+                <h2>Temas Fundamentales</h2>
+                <p>Conoce los conceptos básicos que sustentan el uso de softwares estadísticos</p>
+            </div>
+            
+            <div class="content-grid">
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-book"></i></div>
+                        <div class="card-title">Definición</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Comprende qué son los softwares estadísticos y su importancia en el análisis de datos modernos. Explora su evolución histórica y su impacto en la investigación científica.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-star"></i></div>
+                        <div class="card-title">Importancia</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Analiza el rol fundamental que juegan estas herramientas en la investigación científica y la toma de decisiones basada en datos cuantitativos.</p>
+                    </div>
+                </div>
+                <div class="content-card">
+                    <div class="card-header">
+                        <div class="card-icon"><i class="fas fa-desktop"></i></div>
+                        <div class="card-title">Descripción General</div>
+                    </div>
+                    <div class="card-content">
+                        <p>Presentación detallada de cada plataforma, sus características principales y campos de aplicación específicos en diferentes disciplinas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Topics Section -->
+    <section id="temas" class="topics">
+        <div class="container">
+            <div class="section-title">
+                <h2>Temas de la Unidad</h2>
+                <p>Profundiza en los cinco temas principales que componen esta unidad</p>
+            </div>
+            
+            <div class="topics-grid">
+                <div class="topic-card">
+                    <div class="topic-number">1</div>
+                    <h3>Definición de Software Estadístico</h3>
+                    <div class="topic-content">
+                        <p>Introducción al concepto de software estadístico y su evolución histórica en el análisis de datos.</p>
+                        <ul>
+                            <li>Conceptos fundamentales</li>
+                            <li>Historia y evolución</li>
+                            <li>Clasificación y tipos</li>
+                            <li>Aplicaciones prácticas</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-number">2</div>
+                    <h3>Importancia en la Investigación</h3>
+                    <div class="topic-content">
+                        <p>Análisis del rol fundamental que juegan estas herramientas en la investigación científica y la toma de decisiones.</p>
+                        <ul>
+                            <li>Validación de hipótesis</li>
+                            <li>Análisis exploratorio</li>
+                            <li>Visualización de datos</li>
+                            <li>Reproducibilidad científica</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-number">3</div>
+                    <h3>Descripción de Softwares</h3>
+                    <div class="topic-content">
+                        <p>Presentación detallada de cada plataforma, sus características principales y campos de aplicación específicos.</p>
+                        <ul>
+                            <li>SPSS: Interfaz gráfica amigable</li>
+                            <li>Stata: Potencia para análisis econométrico</li>
+                            <li>R: Versatilidad y código abierto</li>
+                            <li>Python: Ecosistema completo</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-number">4</div>
+                    <h3>Comparación entre Softwares</h3>
+                    <div class="topic-content">
+                        <p>Análisis comparativo considerando aspectos como curva de aprendizaje, costos, capacidades y comunidad de usuarios.</p>
+                        <ul>
+                            <li>Facilidad de uso</li>
+                            <li>Costos y licencias</li>
+                            <li>Capacidades técnicas</li>
+                            <li>Soporte y comunidad</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="topic-card">
+                    <div class="topic-number">5</div>
+                    <h3>Ventajas y Desventajas</h3>
+                    <div class="topic-content">
+                        <p>Evaluación crítica de fortalezas y limitaciones de cada software según diferentes tipos de análisis y necesidades del usuario.</p>
+                        <ul>
+                            <li>Fortalezas específicas</li>
+                            <li>Limitaciones conocidas</li>
+                            <li>Casos de uso ideales</li>
+                            <li>Factores de decisión</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="recursos" class="resources">
+        <div class="container">
+            <div class="section-title">
+                <h2>Recursos de Aprendizaje</h2>
+                <p>Material complementario para profundizar en los conceptos de la unidad</p>
+            </div>
+            
+            <div class="resources-grid">
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-file-pdf"></i></div>
+                    <h3>Guía de Referencia</h3>
+                    <p>Documento PDF con conceptos clave, terminología y ejemplos prácticos de cada software estadístico.</p>
+                    <a href="#" class="resource-link">Descargar PDF</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-video"></i></div>
+                    <h3>Tutoriales en Video</h3>
+                    <p>Serie de videos demostrativos mostrando las características principales de cada software y ejemplos de uso.</p>
+                    <a href="#" class="resource-link">Ver Videos</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-laptop-code"></i></div>
+                    <h3>Ejercicios Prácticos</h3>
+                    <p>Conjunto de ejercicios guiados para aplicar los conceptos aprendidos y desarrollar habilidades prácticas.</p>
+                    <a href="#" class="resource-link">Acceder Ejercicios</a>
+                </div>
+                
+                <div class="resource-card">
+                    <div class="resource-icon"><i class="fas fa-comments"></i></div>
+                    <h3>Foro de Discusión</h3>
+                    <p>Espacio para resolver dudas, compartir experiencias y colaborar con otros estudiantes.</p>
+                    <a href="#" class="resource-link">Participar</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Navigation Section -->
+    <section id="navegacion" class="navigation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Navegación del Curso</h2>
+                <p>Explora otras unidades o regresa al curso principal</p>
+            </div>
+            
+            <div class="nav-buttons">
+                <a href="https://diegomezapy.github.io/software_estadistico/" class="nav-btn secondary">
+                    <i class="fas fa-home"></i>
+                    Curso Principal
+                </a>
+                <a href="https://diegomezapy.github.io/software_estadistico/unidad2/" class="nav-btn">
+                    Siguiente Unidad
+                    <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Softwares Estadísticos</h3>
+                    <p>Unidad 1: Aspectos Generales de los Softwares Estadísticos</p>
+                    <p>Facultad de Ciencias Exactas y Naturales - Universidad Nacional de Asunción</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Enlaces Rápidos</h3>
+                    <ul>
+                        <li><a href="#inicio">Inicio</a></li>
+                        <li><a href="#temas">Temas</a></li>
+                        <li><a href="#recursos">Recursos</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contacto</h3>
+                    <ul>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:dmeza@facen.una.py">dmeza@facen.una.py</a></li>
+                        <li><i class="fas fa-phone"></i> +595 971 100835</li>
+                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/diego-meza/" target="_blank">LinkedIn</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 FACEN - Universidad Nacional de Asunción | Softwares Estadísticos. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Enhanced Particle Animation
+        const canvas = document.getElementById('particles-canvas');
+        const ctx = canvas.getContext('2d');
+        
+        // Set canvas size
+        function setCanvasSize() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        
+        setCanvasSize();
+        window.addEventListener('resize', setCanvasSize);
+        
+        // Particle class with enhanced features
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                this.size = Math.random() * 3 + 1;
+                this.speedX = Math.random() * 1 - 0.5;
+                this.speedY = Math.random() * 1 - 0.5;
+                this.opacity = Math.random() * 0.5 + 0.2;
+                this.pulseSpeed = Math.random() * 0.02 + 0.01;
+                this.pulsePhase = Math.random() * Math.PI * 2;
+            }
+            
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Pulse effect
+                this.pulsePhase += this.pulseSpeed;
+                const pulseFactor = 1 + Math.sin(this.pulsePhase) * 0.2;
+                this.currentSize = this.size * pulseFactor;
+                
+                // Wrap around edges
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+            }
+            
+            draw() {
+                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.currentSize, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+        
+        // Create particles
+        const particlesArray = [];
+        const numberOfParticles = 120;
+        
+        function init() {
+            for (let i = 0; i < numberOfParticles; i++) {
+                particlesArray.push(new Particle());
+            }
+        }
+        
+        // Connect particles with enhanced lines
+        function connect() {
+            for (let a = 0; a < particlesArray.length; a++) {
+                for (let b = a; b < particlesArray.length; b++) {
+                    const distance = Math.sqrt(
+                        Math.pow(particlesArray[a].x - particlesArray[b].x, 2) +
+                        Math.pow(particlesArray[a].y - particlesArray[b].y, 2)
+                    );
+                    
+                    if (distance < 150) {
+                        const opacity = 0.15 * (1 - distance / 150);
+                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
+                        ctx.lineWidth = 1;
+                        ctx.beginPath();
+                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
+                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+        
+        // Animation loop
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            for (let i = 0; i < particlesArray.length; i++) {
+                particlesArray[i].update();
+                particlesArray[i].draw();
+            }
+            
+            connect();
+            requestAnimationFrame(animate);
+        }
+        
+        init();
+        animate();
+        
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Add scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+        
+        // Observe all cards
+        document.querySelectorAll('.content-card, .topic-card, .resource-card').forEach(card => {
+            card.style.opacity = '0';
+            card.style.transform = 'translateY(20px)';
+            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

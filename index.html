@@ -1,1216 +1,349 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Unidad 1 · Aspectos Generales de los Softwares Estadísticos | FACEN - UNA</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary-color: #0A4FA3;
-            --secondary-color: #4D4D4D;
-            --accent-color: #f8f9fa;
-            --text-color: #212529;
-            --light-gray: #e9ecef;
-            --dark-gray: #495057;
-            --success-color: #28a745;
-            --info-color: #17a2b8;
-            --warning-color: #ffc107;
-            --danger-color: #dc3545;
-        }
-        
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Roboto', sans-serif;
-            line-height: 1.6;
-            color: var(--text-color);
-            background-color: #fff;
-            overflow-x: hidden;
-        }
-        
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 15px;
-            position: relative;
-            z-index: 10;
-        }
-        
-        /* Fondo animado */
-        #particles-canvas {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: linear-gradient(135deg, #0A4FA3 0%, #1a73e8 50%, #0A4FA3 100%);
-        }
-        
-        /* Header */
-        header {
-            background-color: rgba(10, 79, 163, 0.95);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 1rem 0;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
-        }
-        
-        .header-content {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-        
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-        
-        .logo {
-            font-size: 1.2rem;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
-            line-height: 1.2;
-        }
-        
-        .logo .main-title {
-            font-size: 1.2rem;
-        }
-        .logo .sub-title {
-            font-size: 0.9rem;
-            font-weight: 400;
-            opacity: 0.9;
-        }
-        
-        .facen-logo {
-            height: 40px;
-            border-radius: 4px;
-        }
-        
-        nav ul {
-            display: flex;
-            list-style: none;
-        }
-        
-        nav ul li {
-            margin-left: 1.5rem;
-        }
-        
-        nav ul li a {
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            position: relative;
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
-        }
-        
-        nav ul li a::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background-color: white;
-            transition: width 0.3s ease;
-        }
-        
-        nav ul li a:hover::after {
-            width: 100%;
-        }
-        
-        /* Hero */
-        .hero {
-            color: white;
-            padding: 6rem 0 4rem 0;
-            text-align: center;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .hero::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.35);
-            z-index: -1;
-        }
-        
-        .hero-content {
-            max-width: 900px;
-            margin: 0 auto;
-            position: relative;
-            z-index: 2;
-        }
-        
-        .hero-badge {
-            display: inline-block;
-            background-color: rgba(255, 255, 255, 0.25);
-            backdrop-filter: blur(10px);
-            color: white;
-            padding: 0.6rem 1.8rem;
-            border-radius: 30px;
-            font-weight: 700;
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
-        }
-        
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-            text-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 800;
-        }
-        
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto 2rem;
-            text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-            font-weight: 500;
-        }
-        
-        .course-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            margin-top: 2rem;
-            flex-wrap: wrap;
-        }
-        
-        .info-item {
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            background-color: rgba(255, 255, 255, 0.2);
-            padding: 0.8rem 1.5rem;
-            border-radius: 50px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-            font-weight: 600;
-        }
-        
-        .info-icon {
-            font-size: 1.2rem;
-        }
-        
-        .btn {
-            display: inline-block;
-            background-color: white;
-            color: var(--primary-color);
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-weight: 700;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.1rem;
-            margin-top: 2rem;
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
-        }
-        
-        /* Secciones */
-        .section-block {
-            padding: 4rem 0;
-            position: relative;
-            z-index: 5;
-        }
-        .section-light {
-            background-color: #f8f9fa;
-        }
-        .section-white {
-            background-color: #ffffff;
-        }
-        
-        .section-title {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-        
-        .section-title h2 {
-            font-size: 2rem;
-            margin-bottom: 1rem;
-            color: var(--primary-color);
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-        
-        .section-title p {
-            font-size: 1.1rem;
-            color: var(--dark-gray);
-            max-width: 700px;
-            margin: 0 auto;
-            font-weight: 500;
-        }
-        
-        /* Tarjetas genéricas reutilizables */
-        .content-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-            gap: 2rem;
-        }
-        
-        .content-card {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-            padding: 2rem;
-            transition: all 0.3s ease;
-            height: 100%;
-            border: 1px solid var(--light-gray);
-        }
-        
-        .content-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .card-header {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.2rem;
-        }
-        
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 10px;
-            background-color: rgba(10, 79, 163, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            flex-shrink: 0;
-        }
-        
-        .card-title {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--primary-color);
-        }
-        
-        .card-content {
-            color: var(--text-color);
-            line-height: 1.7;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        
-        /* Bloques temáticos de la unidad */
-        .unit-section {
-            background-color: white;
-            border-radius: 15px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
-            margin-bottom: 2rem;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            border: 1px solid var(--light-gray);
-        }
-        
-        .unit-section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-        }
-        
-        .unit-header {
-            background: linear-gradient(135deg, var(--primary-color), #1a73e8);
-            color: white;
-            padding: 1.5rem 2rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            box-shadow: 0 3px 10px rgba(10, 79, 163, 0.3);
-        }
-        
-        .unit-number {
-            width: 50px;
-            height: 50px;
-            background-color: rgba(255, 255, 255, 0.25);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            font-weight: 700;
-            backdrop-filter: blur(5px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-        }
-        
-        .unit-title {
-            font-size: 1.4rem;
-            font-weight: 700;
-            font-family: 'Montserrat', sans-serif;
-            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
-        }
-        
-        .unit-content {
-            padding: 2rem;
-            background-color: #ffffff;
-        }
-        
-        .topic-list {
-            list-style: none;
-        }
-        
-        .topic-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1.5rem;
-            border-bottom: 1px solid var(--light-gray);
-        }
-        
-        .topic-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-            padding-bottom: 0;
-        }
-        
-        .topic-icon {
-            color: var(--primary-color);
-            font-size: 1.2rem;
-            margin-top: 0.2rem;
-            flex-shrink: 0;
-            background-color: rgba(10, 79, 163, 0.1);
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .topic-content h4 {
-            color: var(--primary-color);
-            margin-bottom: 0.5rem;
-            font-size: 1.05rem;
-            font-weight: 700;
-        }
-        
-        .topic-content p {
-            color: var(--text-color);
-            line-height: 1.6;
-            font-weight: 500;
-            font-size: 0.95rem;
-        }
-        
-        .subtopics {
-            margin-top: 0.5rem;
-            padding-left: 1.5rem;
-        }
-        
-        .subtopic-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 0.5rem;
-            margin-bottom: 0.5rem;
-            font-size: 0.95rem;
-        }
-        
-        .subtopic-bullet {
-            color: var(--primary-color);
-            margin-top: 0.45rem;
-            font-weight: 700;
-        }
-        
-        /* Instructor */
-        .instructor {
-            padding: 4rem 0;
-            background-color: #ffffff;
-            position: relative;
-            z-index: 5;
-            border-top: 1px solid var(--light-gray);
-        }
-        
-        .instructor-content {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            max-width: 900px;
-            margin: 0 auto;
-        }
-        
-        .instructor-image {
-            flex: 0 0 200px;
-        }
-        
-        .instructor-image img {
-            width: 100%;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-        
-        .instructor-image:hover img {
-            transform: scale(1.02);
-        }
-        
-        .instructor-info h2 {
-            color: var(--primary-color);
-            margin-bottom: 1rem;
-            font-size: 1.6rem;
-            font-family: 'Montserrat', sans-serif;
-            font-weight: 700;
-        }
-        
-        .instructor-info p {
-            margin-bottom: 1rem;
-            font-size: 1rem;
-            line-height: 1.6;
-            color: var(--text-color);
-            font-weight: 500;
-        }
-        
-        .instructor-contact {
-            display: flex;
-            gap: 1.5rem;
-            margin-top: 1.5rem;
-            flex-wrap: wrap;
-        }
-        
-        .contact-link {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--primary-color);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-        }
-        
-        .contact-link:hover {
-            color: #1a73e8;
-            transform: translateY(-2px);
-        }
-        
-        /* Footer */
-        footer {
-            background-color: var(--secondary-color);
-            color: white;
-            padding: 3rem 0 1rem;
-            position: relative;
-            z-index: 5;
-        }
-        
-        .footer-content {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
-        }
-        
-        .footer-section h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1.2rem;
-            font-family: 'Montserrat', sans-serif;
-        }
-        
-        .footer-section ul {
-            list-style: none;
-        }
-        
-        .footer-section ul li {
-            margin-bottom: 0.8rem;
-            display: flex;
-            align-items: center;
-            gap: 0.8rem;
-            font-size: 0.95rem;
-        }
-        
-        .footer-section ul li a {
-            color: white;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            font-weight: 500;
-        }
-        
-        .footer-section ul li a:hover {
-            color: var(--accent-color);
-        }
-        
-        .footer-section p {
-            font-weight: 500;
-            opacity: 0.9;
-            font-size: 0.95rem;
-        }
-        
-        .footer-bottom {
-            text-align: center;
-            padding-top: 2rem;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-        }
-        
-        /* Responsive */
-        @media (max-width: 768px) {
-            .header-content {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            nav ul {
-                flex-wrap: wrap;
-                justify-content: center;
-            }
-            
-            nav ul li {
-                margin: 0 0.5rem;
-            }
-            
-            .hero h1 {
-                font-size: 2.2rem;
-            }
-            
-            .hero p {
-                font-size: 1rem;
-            }
-            
-            .instructor-content {
-                flex-direction: column;
-                text-align: center;
-            }
-            
-            .instructor-contact {
-                justify-content: center;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Softwares Estadísticos, FACEN UNA</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root{
+      --primary-color:#0A4FA3; --secondary-color:#4D4D4D; --accent-color:#f8f9fa;
+      --text-color:#212529; --light-gray:#e9ecef; --dark-gray:#495057;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    body{font-family:'Roboto',sans-serif;line-height:1.6;color:var(--text-color);background:#fff;overflow-x:hidden}
+    .container{width:90%;max-width:1200px;margin:0 auto;padding:0 15px;position:relative;z-index:10}
+
+    /* Fondo animado */
+    #particles-canvas{position:fixed;inset:0;z-index:-1;background:linear-gradient(135deg,#0A4FA3 0%,#1a73e8 50%,#0A4FA3 100%)}
+
+    /* Header */
+    header{background:rgba(10,79,163,.95);backdrop-filter:blur(10px);color:#fff;padding:1rem 0;position:sticky;top:0;z-index:100;box-shadow:0 2px 20px rgba(0,0,0,.3)}
+    .header-content{display:flex;justify-content:space-between;align-items:center}
+    .logo-container{display:flex;align-items:center;gap:1rem}
+    .facen-logo{height:40px;border-radius:4px}
+    .logo{font-size:1.3rem;font-weight:700;font-family:'Montserrat',sans-serif;text-shadow:0 1px 3px rgba(0,0,0,.3);line-height:1.2}
+    nav ul{display:flex;list-style:none;gap:1.25rem;flex-wrap:wrap}
+    nav a{color:#fff;text-decoration:none;font-weight:600;position:relative}
+    nav a::after{content:'';position:absolute;left:0;bottom:-5px;height:2px;width:0;background:#fff;transition:width .3s ease}
+    nav a:hover::after{width:100%}
+
+    /* Dropdown Unidades */
+    .dropdown{position:relative}
+    .dropdown > a{display:inline-flex;align-items:center;gap:.4rem}
+    .dropdown-menu{
+      position:absolute;top:calc(100% + .5rem);left:0;min-width:240px;background:#fff;color:var(--text-color);
+      border:1px solid var(--light-gray);border-radius:10px;box-shadow:0 10px 30px rgba(0,0,0,.15);display:none;z-index:999
+    }
+    .dropdown-menu a{
+      display:flex;align-items:center;gap:.6rem;padding:.75rem 1rem;color:var(--text-color);text-decoration:none;font-weight:500
+    }
+    .dropdown-menu a:hover{background:#f2f6ff}
+    .dropdown:hover .dropdown-menu{display:block}
+
+    /* Hero */
+    .hero{color:#fff;padding:6rem 0 4rem; text-align:center; position:relative; z-index:5}
+    .hero::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.30);z-index:-1}
+    .hero h1{font-size:3rem;margin-bottom:.75rem;line-height:1.2;font-family:'Montserrat',sans-serif;font-weight:800;text-shadow:0 2px 15px rgba(0,0,0,.45)}
+    .hero p{font-size:1.15rem;max-width:900px;margin:0 auto 1.5rem}
+    .course-info{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:1rem}
+    .info-pill{display:flex;align-items:center;gap:.6rem;background:rgba(255,255,255,.25);padding:.6rem 1rem;border-radius:999px;border:1px solid rgba(255,255,255,.35);backdrop-filter:blur(8px)}
+    .btn{display:inline-block;background:#fff;color:var(--primary-color);padding:.9rem 1.5rem;border-radius:999px;font-weight:700;text-decoration:none;margin-top:1.2rem;box-shadow:0 6px 22px rgba(0,0,0,.25)}
+    .btn:hover{transform:translateY(-2px)}
+
+    /* Secciones */
+    .section{padding:4rem 0;background:#fff}
+    .section.alt{background:#f8f9fa}
+    .section-title{text-align:center;margin-bottom:2.2rem}
+    .section-title h2{font-size:2rem;color:var(--primary-color);font-family:'Montserrat',sans-serif}
+    .section-title p{max-width:780px;margin:.6rem auto 0;color:var(--dark-gray);font-weight:500}
+
+    /* Grid tarjetas de unidades */
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1.5rem}
+    .card{background:#fff;border:1px solid var(--light-gray);border-radius:14px;box-shadow:0 8px 22px rgba(0,0,0,.06);padding:1.4rem;transition:transform .25s ease, box-shadow .25s ease}
+    .card:hover{transform:translateY(-4px);box-shadow:0 16px 36px rgba(0,0,0,.10)}
+    .card .kicker{display:inline-flex;align-items:center;gap:.5rem;font-size:.85rem;color:#0a58ca;background:#eef5ff;border:1px solid #d6e4ff;padding:.25rem .6rem;border-radius:999px}
+    .card h3{margin:.8rem 0 .4rem;font-size:1.15rem;color:var(--primary-color)}
+    .card p{font-size:.95rem;color:#3c3f44}
+    .card .actions{margin-top:1rem;display:flex;gap:.6rem;flex-wrap:wrap}
+    .chip{display:inline-flex;align-items:center;gap:.45rem;border:1px dashed #cfd6e0;padding:.35rem .6rem;border-radius:999px;font-size:.85rem;color:#2d2f33;background:#fafbff}
+    .go{display:inline-flex;align-items:center;gap:.5rem;text-decoration:none;font-weight:700;color:#0a58ca}
+    .go:hover{opacity:.85}
+
+    /* Footer */
+    footer{background:var(--secondary-color);color:#fff;padding:2.5rem 0 1rem;margin-top:2rem}
+    .footer-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1.5rem}
+    .footer-grid h4{font-family:'Montserrat',sans-serif;margin-bottom:.8rem}
+    .footer-grid a{color:#fff;text-decoration:none}
+    .footer-grid a:hover{text-decoration:underline}
+    .footnote{text-align:center;margin-top:1.2rem;opacity:.9;font-size:.9rem}
+
+    /* Responsive */
+    @media (max-width:768px){
+      .hero h1{font-size:2.2rem}
+      .hero p{font-size:1rem}
+    }
+  </style>
 </head>
 <body>
-    <canvas id="particles-canvas"></canvas>
+  <canvas id="particles-canvas"></canvas>
 
-    <!-- Header -->
-    <header>
-        <div class="container header-content">
-            <div class="logo-container">
-                <img src="../FACEN_LOGO.jpg" alt="FACEN Logo" class="facen-logo">
-                <div class="logo">
-                    <div class="main-title">Unidad 1</div>
-                    <div class="sub-title">Aspectos Generales de los Softwares Estadísticos</div>
-                </div>
+  <!-- Header con menú y dropdown Unidades -->
+  <header>
+    <div class="container header-content">
+      <div class="logo-container">
+        <img src="FACEN_LOGO.jpg" alt="FACEN" class="facen-logo" />
+        <div class="logo">Softwares Estadísticos<br/><span style="font-weight:400;font-size:.95rem;opacity:.9">FACEN, Universidad Nacional de Asunción</span></div>
+      </div>
+      <nav aria-label="Principal">
+        <ul>
+          <li><a href="#inicio">Inicio</a></li>
+          <li class="dropdown">
+            <a href="#unidades" aria-haspopup="true" aria-expanded="false">Unidades <i class="fa-solid fa-chevron-down" style="font-size:.8rem"></i></a>
+            <div class="dropdown-menu" role="menu" aria-label="Submenú Unidades">
+              <a role="menuitem" href="unidad1/"><i class="fa-solid fa-1"></i> Unidad 1, Aspectos generales</a>
+              <a role="menuitem" href="unidad2/"><i class="fa-solid fa-2"></i> Unidad 2, SPSS</a>
+              <a role="menuitem" href="unidad3/"><i class="fa-solid fa-3"></i> Unidad 3, Stata</a>
+              <a role="menuitem" href="unidad4/"><i class="fa-solid fa-4"></i> Unidad 4, R</a>
+              <a role="menuitem" href="unidad5/"><i class="fa-solid fa-5"></i> Unidad 5, Python</a>
             </div>
-            <nav>
-                <ul>
-                    <li><a href="../">Volver al índice del curso</a></li>
-                    <li><a href="#introduccion">Introducción</a></li>
-                    <li><a href="#objetivos">Objetivos</a></li>
-                    <li><a href="#temario">Temario</a></li>
-                    <li><a href="#materiales">Materiales</a></li>
-                    <li><a href="#actividad">Actividad</a></li>
-                    <li><a href="#docente">Docente</a></li>
-                </ul>
-            </nav>
+          </li>
+          <li><a href="#programa">Programa</a></li>
+          <li><a href="#info">Información</a></li>
+          <li><a href="#docente">Docente</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Hero -->
+  <section id="inicio" class="hero">
+    <div class="container">
+      <h1>Softwares Estadísticos</h1>
+      <p>Asignatura de la Licenciatura en Ciencias, Mención Matemática Estadística, que integra SPSS, Stata, R y Python con énfasis en análisis reproducible, gestión de datos y comunicación técnica.</p>
+      <div class="course-info">
+        <div class="info-pill"><i class="fa-solid fa-graduation-cap"></i> Plan 2023</div>
+        <div class="info-pill"><i class="fa-solid fa-layer-group"></i> 5 unidades</div>
+        <div class="info-pill"><i class="fa-solid fa-clock"></i> 16 sesiones</div>
+        <div class="info-pill"><i class="fa-solid fa-award"></i> 8 créditos</div>
+      </div>
+      <a class="btn" href="#unidades">Ir a Unidades</a>
+    </div>
+  </section>
+
+  <!-- Unidades, tarjetas con enlaces -->
+  <section id="unidades" class="section alt" aria-labelledby="titulo-unidades">
+    <div class="container">
+      <div class="section-title">
+        <h2 id="titulo-unidades">Unidades del curso</h2>
+        <p>Acceso directo al contenido por unidad. Cada enlace abre una vista dedicada con sus objetivos, materiales y actividades.</p>
+      </div>
+
+      <div class="grid">
+        <!-- Unidad 1 -->
+        <article class="card">
+          <span class="kicker"><i class="fa-solid fa-1"></i> Unidad 1</span>
+          <h3>Aspectos generales de los softwares estadísticos</h3>
+          <p>Definición, importancia, clasificación, panorama de SPSS, Stata, R y Python, criterios de selección.</p>
+          <div class="actions">
+            <span class="chip"><i class="fa-solid fa-book-open"></i> Teórico</span>
+            <span class="chip"><i class="fa-solid fa-clipboard-check"></i> Actividad diagnóstica</span>
+          </div>
+          <p style="margin-top:.8rem"><a class="go" href="unidad1/">Abrir Unidad 1 <i class="fa-solid fa-arrow-right"></i></a></p>
+        </article>
+
+        <!-- Unidad 2 -->
+        <article class="card">
+          <span class="kicker"><i class="fa-solid fa-2"></i> Unidad 2</span>
+          <h3>SPSS, entorno, manejo de datos y descriptivos</h3>
+          <p>Instalación, ventanas, importación, limpieza, transformación, tablas y gráficos básicos.</p>
+          <div class="actions">
+            <span class="chip"><i class="fa-solid fa-desktop"></i> Práctico guiado</span>
+            <span class="chip"><i class="fa-solid fa-file-csv"></i> Dataset ejemplo</span>
+          </div>
+          <p style="margin-top:.8rem"><a class="go" href="unidad2/">Abrir Unidad 2 <i class="fa-solid fa-arrow-right"></i></a></p>
+        </article>
+
+        <!-- Unidad 3 -->
+        <article class="card">
+          <span class="kicker"><i class="fa-solid fa-3"></i> Unidad 3</span>
+          <h3>Stata, sintaxis, datos de encuestas y panel</h3>
+          <p>Comandos base, merge, append, manejo de etiquetas, diseño muestral y estimación.</p>
+          <div class="actions">
+            <span class="chip"><i class="fa-solid fa-terminal"></i> Sintaxis</span>
+            <span class="chip"><i class="fa-solid fa-table"></i> Microdatos</span>
+          </div>
+          <p style="margin-top:.8rem"><a class="go" href="unidad3/">Abrir Unidad 3 <i class="fa-solid fa-arrow-right"></i></a></p>
+        </article>
+
+        <!-- Unidad 4 -->
+        <article class="card">
+          <span class="kicker"><i class="fa-solid fa-4"></i> Unidad 4</span>
+          <h3>R, tidyverse, visualización y reportes</h3>
+          <p>Estructuras, dplyr, ggplot2, R Markdown, flujo reproducible del análisis.</p>
+          <div class="actions">
+            <span class="chip"><i class="fa-brands fa-r-project"></i> RStudio</span>
+            <span class="chip"><i class="fa-solid fa-file-lines"></i> Rmd</span>
+          </div>
+          <p style="margin-top:.8rem"><a class="go" href="unidad4/">Abrir Unidad 4 <i class="fa-solid fa-arrow-right"></i></a></p>
+        </article>
+
+        <!-- Unidad 5 -->
+        <article class="card">
+          <span class="kicker"><i class="fa-solid fa-5"></i> Unidad 5</span>
+          <h3>Python para análisis estadístico</h3>
+          <p>NumPy, pandas, visualización, SciPy y statsmodels, preparación para machine learning.</p>
+          <div class="actions">
+            <span class="chip"><i class="fa-brands fa-python"></i> Entornos</span>
+            <span class="chip"><i class="fa-solid fa-chart-simple"></i> Exploratorio</span>
+          </div>
+          <p style="margin-top:.8rem"><a class="go" href="unidad5/">Abrir Unidad 5 <i class="fa-solid fa-arrow-right"></i></a></p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- Programa sintético -->
+  <section id="programa" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Programa del curso</h2>
+        <p>Resumen de contenidos por unidad, alineado con el plan 2023.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Unidad 1</h3>
+          <p>Aspectos generales, comparativa de herramientas, criterios de selección y reproducibilidad.</p>
         </div>
-    </header>
-
-    <!-- Hero -->
-    <section class="hero" id="introduccion">
-        <div class="container">
-            <div class="hero-content">
-                <div class="hero-badge">FACEN, Universidad Nacional de Asunción</div>
-                <h1>Unidad 1, Aspectos Generales</h1>
-                <p>Definición, importancia, clasificación y comparación de los softwares estadísticos: SPSS, Stata, R y Python. Esta unidad establece las bases conceptuales y operativas del curso.</p>
-                
-                <div class="course-info">
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-layer-group"></i></div>
-                        <div>Unidad 1 del programa</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-clock"></i></div>
-                        <div>Duración estimada, 2 sesiones</div>
-                    </div>
-                    <div class="info-item">
-                        <div class="info-icon"><i class="fas fa-user-check"></i></div>
-                        <div>Modalidad, teórico, demostrativo</div>
-                    </div>
-                </div>
-
-                <a href="#temario" class="btn">Ir al Temario Detallado</a>
-            </div>
+        <div class="card">
+          <h3>Unidad 2</h3>
+          <p>SPSS, entorno gráfico, manejo de datos, tablas y descriptivos.</p>
         </div>
-    </section>
-
-    <!-- Objetivos de aprendizaje -->
-    <section class="section-block section-light" id="objetivos">
-        <div class="container">
-            <div class="section-title">
-                <h2>Resultados de aprendizaje de la Unidad</h2>
-                <p>Al finalizar esta unidad el estudiante debe comprender qué problema resuelve cada software y en qué contexto conviene usarlo</p>
-            </div>
-
-            <div class="content-grid">
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-bullseye"></i></div>
-                        <div class="card-title">Comprensión conceptual</div>
-                    </div>
-                    <div class="card-content">
-                        Identificar qué es un software estadístico, diferenciar software propietario y software libre y explicar la importancia del análisis reproducible y documentable.
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-balance-scale"></i></div>
-                        <div class="card-title">Comparación crítica</div>
-                    </div>
-                    <div class="card-content">
-                        Reconocer las principales fortalezas y limitaciones de SPSS, Stata, R y Python en términos de costo, curva de aprendizaje, automatización, replicabilidad, manejo de datos y análisis estadístico.
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-sitemap"></i></div>
-                        <div class="card-title">Mapa de uso profesional</div>
-                    </div>
-                    <div class="card-content">
-                        Asociar cada software con ámbitos de aplicación típicos, por ejemplo investigación académica, análisis actuarial, evaluación de políticas públicas, analítica empresarial, ciencia de datos.
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-check-circle"></i></div>
-                        <div class="card-title">Criterios de selección</div>
-                    </div>
-                    <div class="card-content">
-                        Formular criterios técnicos para justificar la elección de una herramienta en un informe profesional.
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Unidad 3</h3>
+          <p>Stata, sintaxis, fusiones, datos de encuestas y panel.</p>
         </div>
-    </section>
-
-    <!-- Temario Detallado de la Unidad -->
-    <section class="section-block section-white" id="temario">
-        <div class="container">
-            <div class="section-title">
-                <h2>Temario de la Unidad 1</h2>
-                <p>Contenido estructurado en cinco ejes temáticos</p>
-            </div>
-
-            <div class="unit-section">
-                <div class="unit-header">
-                    <div class="unit-number">1</div>
-                    <div class="unit-title">Definición y rol de los softwares estadísticos</div>
-                </div>
-                <div class="unit-content">
-                    <ul class="topic-list">
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-book"></i></div>
-                            <div class="topic-content">
-                                <h4>Qué es un software estadístico</h4>
-                                <p>Concepto de software estadístico como herramienta para gestión, análisis, modelado e inferencia estadística sobre datos estructurados y semiestructurados.</p>
-                            </div>
-                        </li>
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-history"></i></div>
-                            <div class="topic-content">
-                                <h4>Evolución histórica</h4>
-                                <p>De las calculadoras programables y paquetes cerrados orientados a encuestas, a los ecosistemas abiertos y reproducibles que combinan estadística y programación.</p>
-                            </div>
-                        </li>
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-star"></i></div>
-                            <div class="topic-content">
-                                <h4>Importancia actual</h4>
-                                <p>Necesidad de análisis reproducible, auditoría técnica y trazabilidad de resultados en ámbitos académicos, de gobierno y del sector privado.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="unit-section">
-                <div class="unit-header">
-                    <div class="unit-number">2</div>
-                    <div class="unit-title">Panorama de las herramientas del curso</div>
-                </div>
-                <div class="unit-content">
-                    <ul class="topic-list">
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-chart-bar"></i></div>
-                            <div class="topic-content">
-                                <h4>SPSS</h4>
-                                <p>Entorno gráfico orientado a usuarios aplicados, con fuerte presencia en ciencias sociales, salud pública y psicometría. Enfoque en análisis descriptivo, regresión clásica y tablas de resultados listos para informes.</p>
-                            </div>
-                        </li>
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-chart-line"></i></div>
-                            <div class="topic-content">
-                                <h4>Stata</h4>
-                                <p>Plataforma muy utilizada en economía laboral, demografía y evaluación de impacto. Sintaxis compacta, rutinas estables para datos de encuestas y panel, amplia documentación técnica.</p>
-                            </div>
-                        </li>
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fab fa-r-project"></i></div>
-                            <div class="topic-content">
-                                <h4>R</h4>
-                                <p>Lenguaje libre orientado a estadística. Ecosistema CRAN y Bioconductor. Alto nivel de personalización, visualización avanzada, generación automatizada de informes reproducibles.</p>
-                            </div>
-                        </li>
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fab fa-python"></i></div>
-                            <div class="topic-content">
-                                <h4>Python</h4>
-                                <p>Lenguaje multipropósito para ciencia de datos, automatización y machine learning. Integración natural con entornos de producción, APIs, web y dashboards interactivos.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="unit-section">
-                <div class="unit-header">
-                    <div class="unit-number">3</div>
-                    <div class="unit-title">Comparación técnica entre SPSS, Stata, R y Python</div>
-                </div>
-                <div class="unit-content">
-                    <ul class="topic-list">
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-user-graduate"></i></div>
-                            <div class="topic-content">
-                                <h4>Curva de aprendizaje</h4>
-                                <p>Interfaces gráficas frente a lenguajes de scripting. Dependencia de menús frente a capacidad de automatizar análisis repetitivos.</p>
-                                <div class="subtopics">
-                                    <div class="subtopic-item">
-                                        <div class="subtopic-bullet">•</div>
-                                        <div>SPSS, accesible sin programar</div>
-                                    </div>
-                                    <div class="subtopic-item">
-                                        <div class="subtopic-bullet">•</div>
-                                        <div>Stata, comandos directos documentables</div>
-                                    </div>
-                                    <div class="subtopic-item">
-                                        <div class="subtopic-bullet">•</div>
-                                        <div>R y Python, requieren lógica de programación</div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
-
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-dollar-sign"></i></div>
-                            <div class="topic-content">
-                                <h4>Licenciamiento y costo</h4>
-                                <p>Modelos comerciales frente a software libre. Implicancias para laboratorios de docencia, consultoría independiente y uso institucional.</p>
-                            </div>
-                        </li>
-
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-sync-alt"></i></div>
-                            <div class="topic-content">
-                                <h4>Reproducibilidad</h4>
-                                <p>Registro transparente de cada paso analítico. Ventajas de trabajar con scripts versionables frente a flujos manuales basados en clics.</p>
-                            </div>
-                        </li>
-
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-database"></i></div>
-                            <div class="topic-content">
-                                <h4>Manejo de datos</h4>
-                                <p>Capacidad de tratar datos grandes, fusionar múltiples orígenes, limpiar variables y generar nuevas estructuras analíticas.</p>
-                            </div>
-                        </li>
-
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-chart-pie"></i></div>
-                            <div class="topic-content">
-                                <h4>Capacidades estadísticas</h4>
-                                <p>Procedimientos clásicos (estadística descriptiva, regresión lineal y logística) frente a modelado avanzado (series temporales, panel, machine learning, simulaciones).</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="unit-section">
-                <div class="unit-header">
-                    <div class="unit-number">4</div>
-                    <div class="unit-title">Ventajas y limitaciones prácticas</div>
-                </div>
-                <div class="unit-content">
-                    <ul class="topic-list">
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-thumbs-up"></i></div>
-                            <div class="topic-content">
-                                <h4>Fortalezas</h4>
-                                <p>Rapidez para producir tablas publicables, capacidad de automatización, comunidad activa, integración con flujos de trabajo de investigación y con entornos productivos.</p>
-                            </div>
-                        </li>
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-triangle-exclamation"></i></div>
-                            <div class="topic-content">
-                                <h4>Limitaciones</h4>
-                                <p>Restricciones de licenciamiento, complejidad sintáctica inicial, problemas de compatibilidad entre versiones y la necesidad de documentar adecuadamente supuestos estadísticos.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="unit-section">
-                <div class="unit-header">
-                    <div class="unit-number">5</div>
-                    <div class="unit-title">Conclusiones de la Unidad 1</div>
-                </div>
-                <div class="unit-content">
-                    <ul class="topic-list">
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-lightbulb"></i></div>
-                            <div class="topic-content">
-                                <h4>Elección informada de herramienta</h4>
-                                <p>La selección del software no es una cuestión de gusto personal sino de adecuación técnica a la pregunta estadística, al tipo de datos y al entorno institucional en el que se trabaja.</p>
-                            </div>
-                        </li>
-                        <li class="topic-item">
-                            <div class="topic-icon"><i class="fas fa-file-signature"></i></div>
-                            <div class="topic-content">
-                                <h4>Base para las siguientes unidades</h4>
-                                <p>Este marco conceptual habilita el trabajo práctico en SPSS, Stata, R y Python en las unidades siguientes.</p>
-                            </div>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
+        <div class="card">
+          <h3>Unidad 4</h3>
+          <p>R, tidyverse, visualización, R Markdown y reportes.</p>
         </div>
-    </section>
-
-    <!-- Materiales de apoyo -->
-    <section class="section-block section-light" id="materiales">
-        <div class="container">
-            <div class="section-title">
-                <h2>Materiales de la Unidad</h2>
-                <p>Documentos guía y recursos iniciales recomendados</p>
-            </div>
-
-            <div class="content-grid">
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-file-pdf"></i></div>
-                        <div class="card-title">Presentación de la Unidad 1</div>
-                    </div>
-                    <div class="card-content">
-                        Diapositivas introductorias sobre tipos de softwares estadísticos, licenciamiento, reproducibilidad y ámbitos de aplicación.
-                        <br><br>
-                        <strong>Formato</strong>, PDF
-                        <br>
-                        <strong>Uso</strong>, lectura previa y apoyo en clase
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-file-word"></i></div>
-                        <div class="card-title">Guía comparativa</div>
-                    </div>
-                    <div class="card-content">
-                        Documento con tabla comparativa entre SPSS, Stata, R y Python, costo aproximado, principales comandos o interfaces y tipo de salida habitual.
-                        <br><br>
-                        <strong>Formato</strong>, documento de apoyo
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-book-open"></i></div>
-                        <div class="card-title">Lectura sugerida</div>
-                    </div>
-                    <div class="card-content">
-                        Introducción a la reproductibilidad estadística, noción de script, bitácora analítica y auditoría técnica de resultados.
-                        <br><br>
-                        <strong>Objetivo</strong>, comprender por qué el registro del código es parte del trabajo profesional
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-link"></i></div>
-                        <div class="card-title">Enlaces útiles</div>
-                    </div>
-                    <div class="card-content">
-                        - Página oficial de descarga de R y RStudio<br>
-                        - Página oficial de Python / Anaconda<br>
-                        - Manual introductorio de Stata<br>
-                        - Documentación de SPSS para análisis descriptivo
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Unidad 5</h3>
+          <p>Python, pandas, visualización, SciPy y statsmodels.</p>
         </div>
-    </section>
+      </div>
+    </div>
+  </section>
 
-    <!-- Actividad práctica -->
-    <section class="section-block section-white" id="actividad">
-        <div class="container">
-            <div class="section-title">
-                <h2>Actividad Práctica Inicial</h2>
-                <p>Aplicación orientada a análisis real</p>
-            </div>
-
-            <div class="content-grid">
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-tasks"></i></div>
-                        <div class="card-title">Tarea 1, Reconocimiento de entorno</div>
-                    </div>
-                    <div class="card-content">
-                        El estudiante debe identificar en qué sectores profesionales cree que se usa más cada software, justificar su respuesta y señalar un área de interés personal en la cual le gustaría especializarse.
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-clipboard-check"></i></div>
-                        <div class="card-title">Criterio de evaluación</div>
-                    </div>
-                    <div class="card-content">
-                        Se evalúa la capacidad de argumentar técnicamente la elección de herramienta, no solo la preferencia subjetiva. Se espera una justificación breve y clara basada en costo, reproducibilidad y ámbito de aplicación.
-                    </div>
-                </div>
-
-                <div class="content-card">
-                    <div class="card-header">
-                        <div class="card-icon"><i class="fas fa-upload"></i></div>
-                        <div class="card-title">Entrega</div>
-                    </div>
-                    <div class="card-content">
-                        Entrega individual en formato PDF o Word, 1 a 2 páginas, con identificación del alumno. El docente puede solicitar la entrega vía formulario o aula virtual institucional.
-                    </div>
-                </div>
-            </div>
+  <!-- Información del curso -->
+  <section id="info" class="section alt">
+    <div class="container">
+      <div class="section-title">
+        <h2>Información del curso</h2>
+        <p>Plan de la carrera, créditos y modalidad.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Carrera y plan</h3>
+          <p>Licenciatura en Ciencias Mención Matemática Estadística, Plan 2023, FACEN, UNA.</p>
         </div>
-    </section>
-
-    <!-- Docente -->
-    <section class="instructor" id="docente">
-        <div class="container">
-            <div class="section-title">
-                <h2>Docente Responsable</h2>
-                <p>Referencia académica y de contacto</p>
-            </div>
-            
-            <div class="instructor-content">
-                <div class="instructor-image">
-                    <img src="../imagenCV.jpeg" alt="Diego Bernardo Meza Bogado">
-                </div>
-                <div class="instructor-info">
-                    <h2>Diego Bernardo Meza Bogado</h2>
-                    <p><strong>Estadístico. Docente universitario. Especialista en análisis de datos.</strong></p>
-                    <p>Experiencia profesional en análisis de datos administrativos, encuestas de hogares, modelización actuarial y desarrollo de tableros analíticos aplicados a gestión pública y salud.</p>
-                    
-                    <div class="instructor-contact">
-                        <a href="mailto:dmeza@facen.una.py" class="contact-link">
-                            <i class="fas fa-envelope"></i>
-                            Contacto académico
-                        </a>
-                        <a href="https://www.linkedin.com/in/diego-meza/" target="_blank" class="contact-link">
-                            <i class="fab fa-linkedin"></i>
-                            Perfil profesional
-                        </a>
-                    </div>
-                </div>
-            </div>
+        <div class="card">
+          <h3>Carga horaria</h3>
+          <p>16 sesiones, cinco unidades, 8 créditos, clases teóricas y prácticas.</p>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer id="contacto">
-        <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
-                    <h3>Unidad 1</h3>
-                    <p>Aspectos Generales de los Softwares Estadísticos. Carrera Licenciatura en Ciencias Mención Matemática Estadística, FACEN, UNA.</p>
-                </div>
-                <div class="footer-section">
-                    <h3>Navegación</h3>
-                    <ul>
-                        <li><a href="#introduccion"><i class="fas fa-home"></i> Introducción</a></li>
-                        <li><a href="#objetivos"><i class="fas fa-bullseye"></i> Objetivos</a></li>
-                        <li><a href="#temario"><i class="fas fa-list-ul"></i> Temario</a></li>
-                        <li><a href="#materiales"><i class="fas fa-book"></i> Materiales</a></li>
-                        <li><a href="#actividad"><i class="fas fa-tasks"></i> Actividad</a></li>
-                        <li><a href="#docente"><i class="fas fa-user-tie"></i> Docente</a></li>
-                        <li><a href="../"><i class="fas fa-arrow-left"></i> Volver al índice</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Contacto</h3>
-                    <ul>
-                        <li><i class="fas fa-envelope"></i> <a href="mailto:dmeza@facen.una.py">dmeza@facen.una.py</a></li>
-                        <li><i class="fas fa-phone"></i> +595 971 100835</li>
-                        <li><i class="fas fa-map-marker-alt"></i> Luque, Paraguay</li>
-                        <li><i class="fab fa-linkedin"></i> <a href="https://www.linkedin.com/in/diego-meza/" target="_blank">LinkedIn</a></li>
-                    </ul>
-                </div>
-                <div class="footer-section">
-                    <h3>Herramientas cubiertas</h3>
-                    <ul>
-                        <li><i class="fas fa-chart-bar"></i> SPSS</li>
-                        <li><i class="fas fa-chart-line"></i> Stata</li>
-                        <li><i class="fab fa-r-project"></i> R</li>
-                        <li><i class="fab fa-python"></i> Python</li>
-                    </ul>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2025 FACEN, Universidad Nacional de Asunción. Softwares Estadísticos. Todos los derechos reservados.</p>
-            </div>
+        <div class="card">
+          <h3>Requisitos</h3>
+          <p>No requiere prerrequisitos formales, se espera manejo básico de ofimática y navegación de archivos.</p>
         </div>
-    </footer>
+      </div>
+    </div>
+  </section>
 
-    <script>
-        // Fondo de partículas
-        const canvas = document.getElementById('particles-canvas');
-        const ctx = canvas.getContext('2d');
-        
-        function setCanvasSize() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
+  <!-- Docente -->
+  <section id="docente" class="section">
+    <div class="container">
+      <div class="section-title">
+        <h2>Docente responsable</h2>
+        <p>Referencia académica y de contacto.</p>
+      </div>
+      <div class="grid">
+        <div class="card">
+          <h3>Diego Bernardo Meza Bogado</h3>
+          <p>Estadístico, docente universitario, especialista en análisis de datos. Experiencia en datos administrativos, encuestas de hogares, modelos actuariales y tableros de gestión.</p>
+          <p style="margin-top:.6rem">
+            <i class="fa-solid fa-envelope"></i> <a href="mailto:dmeza@facen.una.py">dmeza@facen.una.py</a><br/>
+            <i class="fa-brands fa-linkedin"></i> <a href="https://www.linkedin.com/in/diego-meza/" target="_blank" rel="noopener">LinkedIn</a>
+          </p>
+        </div>
+        <div class="card" style="display:flex;align-items:center;justify-content:center">
+          <img src="imagenCV.jpeg" alt="Diego Meza" style="max-width:260px;border-radius:12px;box-shadow:0 10px 30px rgba(0,0,0,.15)"/>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container footer-grid">
+      <div>
+        <h4>Softwares Estadísticos</h4>
+        <p>FACEN, Universidad Nacional de Asunción. Navegación directa a unidades y materiales.</p>
+      </div>
+      <div>
+        <h4>Navegación</h4>
+        <p><a href="#inicio">Inicio</a></p>
+        <p><a href="#unidades">Unidades</a></p>
+        <p><a href="#programa">Programa</a></p>
+        <p><a href="#info">Información</a></p>
+        <p><a href="#docente">Docente</a></p>
+      </div>
+      <div>
+        <h4>Unidades</h4>
+        <p><a href="unidad1/">Unidad 1</a>, <a href="unidad2/">Unidad 2</a></p>
+        <p><a href="unidad3/">Unidad 3</a>, <a href="unidad4/">Unidad 4</a></p>
+        <p><a href="unidad5/">Unidad 5</a></p>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <p><i class="fa-solid fa-envelope"></i> <a href="mailto:dmeza@facen.una.py">dmeza@facen.una.py</a></p>
+        <p><i class="fa-solid fa-location-dot"></i> Luque, Paraguay</p>
+      </div>
+    </div>
+    <div class="container footnote">&copy; 2025 FACEN, Universidad Nacional de Asunción</div>
+  </footer>
+
+  <script>
+    // Fondo partículas
+    const canvas=document.getElementById('particles-canvas'); const ctx=canvas.getContext('2d');
+    function setCanvasSize(){canvas.width=window.innerWidth;canvas.height=window.innerHeight}
+    setCanvasSize(); window.addEventListener('resize',setCanvasSize);
+
+    class Particle{
+      constructor(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.size=Math.random()*3+1;this.vx=Math.random()*1-.5;this.vy=Math.random()*1-.5;this.o=Math.random()*.5+.2;this.ph=Math.random()*Math.PI*2;this.ps=Math.random()*.02+.01}
+      update(){this.x+=this.vx;this.y+=this.vy;this.ph+=this.ps;this.cs=this.size*(1+Math.sin(this.ph)*.2); if(this.x>canvas.width)this.x=0;else if(this.x<0)this.x=canvas.width; if(this.y>canvas.height)this.y=0;else if(this.y<0)this.y=canvas.height;}
+      draw(){ctx.fillStyle=`rgba(255,255,255,${this.o})`;ctx.beginPath();ctx.arc(this.x,this.y,this.cs,0,Math.PI*2);ctx.fill();}
+    }
+    const parts=[]; for(let i=0;i<120;i++) parts.push(new Particle());
+    function connect(){
+      for(let a=0;a<parts.length;a++){
+        for(let b=a;b<parts.length;b++){
+          const dx=parts[a].x-parts[b].x, dy=parts[a].y-parts[b].y, d=Math.hypot(dx,dy);
+          if(d<150){ctx.strokeStyle=`rgba(255,255,255,${0.15*(1-d/150)})`;ctx.lineWidth=1;ctx.beginPath();ctx.moveTo(parts[a].x,parts[a].y);ctx.lineTo(parts[b].x,parts[b].y);ctx.stroke();}
         }
-        setCanvasSize();
-        window.addEventListener('resize', setCanvasSize);
-        
-        class Particle {
-            constructor() {
-                this.x = Math.random() * canvas.width;
-                this.y = Math.random() * canvas.height;
-                this.size = Math.random() * 3 + 1;
-                this.speedX = Math.random() * 1 - 0.5;
-                this.speedY = Math.random() * 1 - 0.5;
-                this.opacity = Math.random() * 0.5 + 0.2;
-                this.pulseSpeed = Math.random() * 0.02 + 0.01;
-                this.pulsePhase = Math.random() * Math.PI * 2;
-            }
-            
-            update() {
-                this.x += this.speedX;
-                this.y += this.speedY;
-                
-                this.pulsePhase += this.pulseSpeed;
-                const pulseFactor = 1 + Math.sin(this.pulsePhase) * 0.2;
-                this.currentSize = this.size * pulseFactor;
-                
-                if (this.x > canvas.width) this.x = 0;
-                else if (this.x < 0) this.x = canvas.width;
-                
-                if (this.y > canvas.height) this.y = 0;
-                else if (this.y < 0) this.y = canvas.height;
-            }
-            
-            draw() {
-                ctx.fillStyle = `rgba(255, 255, 255, ${this.opacity})`;
-                ctx.beginPath();
-                ctx.arc(this.x, this.y, this.currentSize, 0, Math.PI * 2);
-                ctx.fill();
-            }
-        }
-        
-        const particlesArray = [];
-        const numberOfParticles = 120;
-        
-        function init() {
-            for (let i = 0; i < numberOfParticles; i++) {
-                particlesArray.push(new Particle());
-            }
-        }
-        
-        function connect() {
-            for (let a = 0; a < particlesArray.length; a++) {
-                for (let b = a; b < particlesArray.length; b++) {
-                    const dx = particlesArray[a].x - particlesArray[b].x;
-                    const dy = particlesArray[a].y - particlesArray[b].y;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    if (distance < 150) {
-                        const opacity = 0.15 * (1 - distance / 150);
-                        ctx.strokeStyle = `rgba(255, 255, 255, ${opacity})`;
-                        ctx.lineWidth = 1;
-                        ctx.beginPath();
-                        ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-                        ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-                        ctx.stroke();
-                    }
-                }
-            }
-        }
-        
-        function animate() {
-            ctx.clearRect(0, 0, canvas.width, canvas.height);
-            
-            for (let i = 0; i < particlesArray.length; i++) {
-                particlesArray[i].update();
-                particlesArray[i].draw();
-            }
-            
-            connect();
-            requestAnimationFrame(animate);
-        }
-        
-        init();
-        animate();
+      }
+    }
+    function animate(){ctx.clearRect(0,0,canvas.width,canvas.height); for(const p of parts){p.update();p.draw();} connect(); requestAnimationFrame(animate);}
+    animate();
 
-        // Animaciones on-scroll
-        const observerOptions = {
-            threshold: 0.1,
-            rootMargin: '0px 0px -100px 0px'
-        };
-        
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                }
-            });
-        }, observerOptions);
-        
-        document.querySelectorAll('.content-card, .unit-section').forEach(card => {
-            card.style.opacity = '0';
-            card.style.transform = 'translateY(20px)';
-            card.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-            observer.observe(card);
-        });
-
-        // Scroll suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                const destino = document.querySelector(this.getAttribute('href'));
-                if (!destino) return;
-                e.preventDefault();
-                destino.scrollIntoView({behavior: 'smooth'});
-            });
-        });
-    </script>
+    // Scroll suave
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click',e=>{
+        const tgt=document.querySelector(a.getAttribute('href'));
+        if(!tgt) return;
+        e.preventDefault(); tgt.scrollIntoView({behavior:'smooth'});
+      });
+    });
+  </script>
 </body>
 </html>

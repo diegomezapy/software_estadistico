@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Evaluación — Unidad 1</title>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+  <style>
+    :root{--primary:#0A4FA3;--text:#212529;--lite:#e9ecef}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{font-family:'Roboto',sans-serif;color:var(--text);background:#fff}
+    .wrap{width:90%;max-width:880px;margin:0 auto}
+    header{background:linear-gradient(135deg,#0A4FA3,#1a73e8);color:#fff;padding:1.6rem 0}
+    h1{font-family:'Montserrat',sans-serif;font-size:1.6rem}
+    .card{background:#fff;border:1px solid var(--lite);border-radius:14px;padding:1rem;margin-top:1rem}
+    .q{margin:.6rem 0}
+    .q legend{font-weight:700;margin-bottom:.4rem;color:#0A4FA3}
+    .opt{display:flex;align-items:flex-start;gap:.5rem;margin:.25rem 0}
+    .btn{display:inline-flex;align-items:center;gap:.5rem;background:#0a58ca;color:#fff;text-decoration:none;border-radius:999px;padding:.6rem 1rem;font-weight:700;border:0;cursor:pointer}
+    .btn.secondary{background:#fff;border:1px solid #0a58ca;color:#0a58ca}
+    .note{font-size:.95rem;color:#3a3d41}
+    .msg{margin-top:1rem;padding:.8rem;border-radius:10px;display:none}
+    .ok{background:#e7f7ed;border:1px solid #b2e5c4;color:#145c2e}
+    .err{background:#fdecef;border:1px solid #f3c1c8;color:#7a1321}
+    footer{padding:2rem 0;color:#6b7280}
+  </style>
+</head>
+<body>
+  <header>
+    <div class="wrap">
+      <h1>Evaluación — Unidad 1, Aspectos generales</h1>
+      <p class="note" style="margin-top:.4rem">Selecciona una opción por pregunta y presiona Enviar. Se almacenará un registro con sello de tiempo.</p>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <form id="quiz" class="card" novalidate>
+      <!-- Metadatos estudiante -->
+      <fieldset class="q">
+        <legend>Identificación</legend>
+        <div class="opt">
+          <label for="cedula" style="width:160px">Cédula</label>
+          <input id="cedula" name="cedula" type="text" required pattern="[0-9\. -]+" style="flex:1;padding:.5rem;border:1px solid #d0d7de;border-radius:8px"/>
+        </div>
+        <div class="opt">
+          <label for="nombre" style="width:160px">Nombre y apellido</label>
+          <input id="nombre" name="nombre" type="text" required style="flex:1;padding:.5rem;border:1px solid #d0d7de;border-radius:8px"/>
+        </div>
+        <div class="opt">
+          <label for="email" style="width:160px">Correo institucional</label>
+          <input id="email" name="email" type="email" required style="flex:1;padding:.5rem;border:1px solid #d0d7de;border-radius:8px"/>
+        </div>
+      </fieldset>
+
+      <!-- Preguntas tipo test -->
+      <fieldset class="q">
+        <legend>P1. ¿Qué es un software estadístico?</legend>
+        <label class="opt"><input type="radio" name="p1" value="A" required/> A. Un sistema operativo</label>
+        <label class="opt"><input type="radio" name="p1" value="B"/> B. Una aplicación orientada al análisis de datos y métodos estadísticos</label>
+        <label class="opt"><input type="radio" name="p1" value="C"/> C. Un gestor de correo electrónico</label>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend>P2. ¿Cuál NO es un criterio común para elegir software?</legend>
+        <label class="opt"><input type="radio" name="p2" value="A" required/> A. Curva de aprendizaje</label>
+        <label class="opt"><input type="radio" name="p2" value="B"/> B. Costos y licenciamiento</label>
+        <label class="opt"><input type="radio" name="p2" value="C"/> C. Color favorito del usuario</label>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend>P3. ¿Cuál de los siguientes es software libre?</legend>
+        <label class="opt"><input type="radio" name="p3" value="A" required/> A. SPSS</label>
+        <label class="opt"><input type="radio" name="p3" value="B"/> B. R</label>
+        <label class="opt"><input type="radio" name="p3" value="C"/> C. Stata</label>
+      </fieldset>
+
+      <fieldset class="q">
+        <legend>P4. Señala la mejor definición de reproducibilidad</legend>
+        <label class="opt"><input type="radio" name="p4" value="A" required/> A. Capacidad de obtener resultados idénticos sin documentar procesos</label>
+        <label class="opt"><input type="radio" name="p4" value="B"/> B. Capacidad de replicar resultados documentando datos, código y entorno</label>
+        <label class="opt"><input type="radio" name="p4" value="C"/> C. Capacidad de producir gráficos atractivos</label>
+      </fieldset>
+
+      <div style="display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.8rem">
+        <button type="submit" class="btn"><i class="fa-solid fa-paper-plane"></i> Enviar</button>
+        <a class="btn secondary" href="../../">Volver a la portada</a>
+      </div>
+      <div id="ok" class="msg ok">Respuesta registrada correctamente</div>
+      <div id="err" class="msg err">No se pudo registrar. Verifica conexión o reintenta</div>
+    </form>
+  </main>
+
+  <footer class="wrap">
+    <p>FACEN, Universidad Nacional de Asunción</p>
+  </footer>
+
+  <script>
+    // === CONFIGURACIÓN ===
+    const GAS_ENDPOINT = "PASTE_AQUI_TU_URL_WEBAPP_GAS";
+    const UNIT_TAG = "unidad1_evaluacion"; // cambia a 'unidad2_evaluacion' si duplicas para la Unidad 2
+
+    function payloadFromForm(form){
+      const fd = new FormData(form);
+      const data = Object.fromEntries(fd.entries());
+      // Añade metadatos útiles
+      data._unit = UNIT_TAG;
+      data._ts_client = new Date().toISOString();
+      data._ua = navigator.userAgent || "";
+      data._origin = location.href;
+      return data;
+    }
+
+    function valid(form){
+      if(!form.reportValidity) return true;
+      return form.reportValidity();
+    }
+
+    document.getElementById('quiz').addEventListener('submit', async (ev)=>{
+      ev.preventDefault();
+      const form = ev.currentTarget;
+      if(!valid(form)) return;
+
+      const ok = document.getElementById('ok');
+      const err = document.getElementById('err');
+      ok.style.display = "none";
+      err.style.display = "none";
+
+      try{
+        const res = await fetch(GAS_ENDPOINT, {
+          method: "POST",
+          headers: {"Content-Type":"application/json"},
+          body: JSON.stringify(payloadFromForm(form))
+        });
+        if(!res.ok) throw new Error("HTTP "+res.status);
+        const j = await res.json();
+        if(j && j.status==="ok"){
+          ok.style.display = "block";
+          form.querySelectorAll("input,button").forEach(el=>el.disabled=true);
+        }else{
+          err.style.display = "block";
+        }
+      }catch(e){
+        err.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>

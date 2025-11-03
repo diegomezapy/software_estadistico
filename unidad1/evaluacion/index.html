@@ -95,55 +95,59 @@
     <p>FACEN, Universidad Nacional de Asunción</p>
   </footer>
 
-  <script>
-    // === CONFIGURACIÓN ===
-    const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbwgy2jzzeBZLy4DzLCw1YX5gLZzVG9qheqrZQclb7hI9Te6piNS02T9Kgb2UsnrTNqs/exec";
-    const UNIT_TAG = "unidad1_evaluacion"; // cambia a 'unidad2_evaluacion' si duplicas para la Unidad 2
+<script>
+  // === CONFIGURACIÓN ===
+  const GAS_ENDPOINT = "https://script.google.com/macros/s/AKfycbxPAQXX4EbKlNohdlkSCrOGtPfQU9u423eTKFix-TuA5ITTPyQO8QnqKtD6NNFDBqXM/exec";
+  const UNIT_TAG = "unidad1_evaluacion"; // en Unidad 2 usa 'unidad2_evaluacion'
 
-    function payloadFromForm(form){
-      const fd = new FormData(form);
-      const data = Object.fromEntries(fd.entries());
-      // Añade metadatos útiles
-      data._unit = UNIT_TAG;
-      data._ts_client = new Date().toISOString();
-      data._ua = navigator.userAgent || "";
-      data._origin = location.href;
-      return data;
-    }
+  function payloadFromForm(form){
+    const fd = new FormData(form);
+    const params = new URLSearchParams();
+    for (const [k, v] of fd.entries()) params.append(k, v);
+    params.append('_unit', UNIT_TAG);
+    params.append('_ts_client', new Date().toISOString());
+    params.append('_ua', navigator.userAgent || '');
+    params.append('_origin', location.href);
+    return params;
+  }
 
-    function valid(form){
-      if(!form.reportValidity) return true;
-      return form.reportValidity();
-    }
+  function valid(form){
+    if (!form.reportValidity) return true;
+    return form.reportValidity();
+  }
 
-    document.getElementById('quiz').addEventListener('submit', async (ev)=>{
-      ev.preventDefault();
-      const form = ev.currentTarget;
-      if(!valid(form)) return;
+  document.getElementById('quiz').addEventListener('submit', async (ev)=>{
+    ev.preventDefault();
+    const form = ev.currentTarget;
+    if (!valid(form)) return;
 
-      const ok = document.getElementById('ok');
-      const err = document.getElementById('err');
-      ok.style.display = "none";
-      err.style.display = "none";
+    const ok = document.getElementById('ok');
+    const err = document.getElementById('err');
+    ok.style.display = "none";
+    err.style.display = "none";
 
-      try{
-        const res = await fetch(GAS_ENDPOINT, {
-          method: "POST",
-          headers: {"Content-Type":"application/json"},
-          body: JSON.stringify(payloadFromForm(form))
-        });
-        if(!res.ok) throw new Error("HTTP "+res.status);
-        const j = await res.json();
-        if(j && j.status==="ok"){
-          ok.style.display = "block";
-          form.querySelectorAll("input,button").forEach(el=>el.disabled=true);
-        }else{
-          err.style.display = "block";
-        }
-      }catch(e){
+    try {
+      const res = await fetch(GAS_ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded;charset=UTF-8" },
+        body: payloadFromForm(form).toString()
+      });
+
+      if (!res.ok) throw new Error("HTTP "+res.status);
+
+      // Al usar urlencoded, la respuesta JSON es legible
+      const j = await res.json();
+      if (j && j.status === "ok") {
+        ok.style.display = "block";
+        form.querySelectorAll("input,button").forEach(el => el.disabled = true);
+      } else {
         err.style.display = "block";
       }
-    });
-  </script>
+    } catch (e) {
+      err.style.display = "block";
+    }
+  });
+</script>
+
 </body>
 </html>

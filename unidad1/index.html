@@ -1,143 +1,1396 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Unidad 2, SPSS — Softwares Estadísticos, FACEN UNA</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Montserrat:wght@600;700;800&display=swap" rel="stylesheet"/>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
-  <style>
-    :root{--primary:#0A4FA3;--text:#212529;--muted:#495057;--lite:#e9ecef}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{font-family:'Roboto',sans-serif;color:var(--text);background:#fff}
-    .wrap{width:90%;max-width:1200px;margin:0 auto}
-    header{position:sticky;top:0;z-index:100;background:rgba(10,79,163,.95);color:#fff;padding:1rem 0;box-shadow:0 2px 20px rgba(0,0,0,.25)}
-    .row{display:flex;align-items:center;justify-content:space-between;gap:1rem}
-    .facen{height:40px;border-radius:4px}
-    .brand{font-family:'Montserrat',sans-serif;font-weight:700}
-    nav ul{list-style:none;display:flex;gap:1rem;flex-wrap:wrap}
-    nav a{color:#fff;text-decoration:none;font-weight:600;position:relative}
-    nav a::after{content:'';position:absolute;left:0;bottom:-6px;height:2px;width:0;background:#fff;transition:width .2s}
-    nav a:hover::after{width:100%}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Introducción a Software Estadístico - Universidad Nacional de Asunción</title>
+    <meta name="description" content="Unidad educativa sobre software estadístico para la carrera de Ciencias, mención Matemática Estadística">
+    
+    <!-- Preconexión optimizada -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome optimizado -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    
+    <!-- AOS optimizado -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    
+    <style>
+        /* =================================================================
+         * SISTEMA DE DISEÑO: PRESENTACIÓN ESTADÍSTICA
+         * =================================================================
+         * Arquitectura CSS moderna con metodología BEM modificada
+         * Compatibilidad total con Google Apps Script
+         * Accesibilidad WCAG AA cumplida
+         * Rendimiento optimizado (Critical CSS en línea)
+        */
 
-    .hero{background:linear-gradient(135deg,#0A4FA3,#1a73e8);color:#fff;padding:3.5rem 0}
-    .hero h1{font-family:'Montserrat',sans-serif;font-size:2rem;margin-bottom:.5rem}
-    .pill{display:inline-flex;align-items:center;gap:.5rem;background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.35);border-radius:999px;padding:.4rem .8rem;margin-right:.5rem}
+        /* --- RESET SEGURO Y AISLADO --- */
+        .stat-pres-component {
+            all: initial !important;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif !important;
+        }
 
-    .section{padding:2.4rem 0}
-    .title{font-family:'Montserrat',sans-serif;color:var(--primary);font-size:1.6rem;margin-bottom:1rem}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:1rem}
-    .card{border:1px solid var(--lite);border-radius:14px;padding:1rem;box-shadow:0 8px 22px rgba(0,0,0,.06);background:#fff}
-    .card h3{color:var(--primary);margin-bottom:.6rem;font-size:1.1rem}
-    .list{margin:.5rem 0 0 1rem}
-    .btn{display:inline-flex;align-items:center;gap:.5rem;background:#0a58ca;color:#fff;text-decoration:none;border-radius:999px;padding:.6rem 1rem;font-weight:700}
-    .btn.outline{background:#fff;color:#0a58ca;border:1px solid #0a58ca}
-    .muted{color:var(--muted)}
-    footer{background:#4D4D4D;color:#fff;padding:2rem 0;margin-top:2rem}
-    .foot{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:1rem}
-    .foot a{color:#fff;text-decoration:none}
-    .foot a:hover{text-decoration:underline}
-  </style>
+        /* --- VARIABLES DE DISEÑO (Design Tokens) --- */
+        .stat-pres-component {
+            /* Paleta principal */
+            --stat-color-primary: #2563eb;
+            --stat-color-primary-dark: #1d4ed8;
+            --stat-color-secondary: #7c3aed;
+            --stat-color-accent: #dc2626;
+            --stat-color-success: #059669;
+            --stat-color-warning: #d97706;
+            --stat-color-info: #0891b2;
+            
+            /* Escala de grises */
+            --stat-color-gray-50: #f9fafb;
+            --stat-color-gray-100: #f3f4f6;
+            --stat-color-gray-200: #e5e7eb;
+            --stat-color-gray-300: #d1d5db;
+            --stat-color-gray-400: #9ca3af;
+            --stat-color-gray-500: #6b7280;
+            --stat-color-gray-600: #4b5563;
+            --stat-color-gray-700: #374151;
+            --stat-color-gray-800: #1f2937;
+            --stat-color-gray-900: #111827;
+            
+            /* Tipografía */
+            --stat-font-heading: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+            --stat-font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            
+            /* Espaciado */
+            --stat-space-xs: 0.25rem;
+            --stat-space-sm: 0.5rem;
+            --stat-space-md: 1rem;
+            --stat-space-lg: 1.5rem;
+            --stat-space-xl: 2rem;
+            --stat-space-2xl: 3rem;
+            --stat-space-3xl: 4rem;
+            
+            /* Sombras */
+            --stat-shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+            --stat-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            --stat-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+            --stat-shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            
+            /* Bordes */
+            --stat-radius-sm: 0.375rem;
+            --stat-radius-md: 0.5rem;
+            --stat-radius-lg: 0.75rem;
+            --stat-radius-xl: 1rem;
+            --stat-radius-2xl: 1.5rem;
+            
+            /* Transiciones */
+            --stat-transition-fast: 150ms cubic-bezier(0.4, 0, 0.2, 1);
+            --stat-transition-base: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+            --stat-transition-slow: 350ms cubic-bezier(0.4, 0, 0.2, 1);
+            
+            /* Z-index escalada */
+            --stat-z-dropdown: 10;
+            --stat-z-sticky: 20;
+            --stat-z-modal: 30;
+            --stat-z-popover: 40;
+            --stat-z-tooltip: 50;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL --- */
+        .stat-pres-component {
+            width: 100% !important;
+            min-height: 100vh !important;
+            background: linear-gradient(135deg, var(--stat-color-gray-900) 0%, var(--stat-color-gray-800) 100%) !important;
+            color: var(--stat-color-gray-100) !important;
+            line-height: 1.6 !important;
+            -webkit-font-smoothing: antialiased !important;
+          -moz-osx-font-smoothing: grayscale !important;
+        }
+
+        .stat-pres-container {
+            max-width: 1400px !important;
+            margin: 0 auto !important;
+            padding: var(--stat-space-xl) !important;
+        }
+
+        /* --- SIDEBAR MEJORADA --- */
+        .stat-pres-sidebar {
+            position: fixed !important;
+            left: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: 280px !important;
+            background: linear-gradient(180deg, 
+                var(--stat-color-gray-900) 0%,
+                rgba(30, 41, 59, 0.95) 100%) !important;
+            backdrop-filter: blur(10px) !important;
+            border-right: 1px solid rgba(255, 255, 255, 0.1) !important;
+            padding: var(--stat-space-xl) var(--stat-space-lg) !important;
+            z-index: var(--stat-z-sticky) !important;
+            overflow-y: auto !important;
+            transform: translateX(0) !important;
+            transition: transform var(--stat-transition-base) !important;
+        }
+
+        .stat-pres-sidebar--collapsed {
+            transform: translateX(-100%) !important;
+        }
+
+        .stat-pres-sidebar__logo {
+            display: flex !important;
+            align-items: center !important;
+            gap: var(--stat-space-sm) !important;
+            padding: var(--stat-space-md) 0 !important;
+            margin-bottom: var(--stat-space-2xl) !important;
+            border-bottom: 2px solid var(--stat-color-primary) !important;
+        }
+
+        .stat-pres-sidebar__logo-icon {
+            color: var(--stat-color-primary) !important;
+            font-size: 1.75rem !important;
+        }
+
+        .stat-pres-sidebar__logo-text {
+            font-family: var(--stat-font-heading) !important;
+            font-weight: 800 !important;
+            font-size: 1.5rem !important;
+            background: linear-gradient(90deg, var(--stat-color-primary), var(--stat-color-secondary)) !important;
+            -webkit-background-clip: text !important;
+            background-clip: text !important;
+            color: transparent !important;
+            letter-spacing: -0.025em !important;
+        }
+
+        .stat-pres-nav__list {
+            list-style: none !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+
+        .stat-pres-nav__item {
+            margin-bottom: var(--stat-space-xs) !important;
+        }
+
+        .stat-pres-nav__link {
+            display: flex !important;
+            align-items: center !important;
+            gap: var(--stat-space-md) !important;
+            padding: var(--stat-space-md) var(--stat-space-lg) !important;
+            color: var(--stat-color-gray-300) !important;
+            text-decoration: none !important;
+            border-radius: var(--stat-radius-lg) !important;
+            transition: all var(--stat-transition-base) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        .stat-pres-nav__link::before {
+            content: '' !important;
+            position: absolute !important;
+            left: 0 !important;
+            top: 0 !important;
+            bottom: 0 !important;
+            width: 4px !important;
+            background: var(--stat-color-primary) !important;
+            transform: scaleY(0) !important;
+            transition: transform var(--stat-transition-base) !important;
+        }
+
+        .stat-pres-nav__link:hover {
+            background: rgba(255, 255, 255, 0.05) !important;
+            color: var(--stat-color-gray-100) !important;
+            transform: translateX(4px) !important;
+        }
+
+        .stat-pres-nav__link:hover::before {
+            transform: scaleY(1) !important;
+        }
+
+        .stat-pres-nav__link.active {
+            background: rgba(37, 99, 235, 0.15) !important;
+            color: var(--stat-color-primary) !important;
+            font-weight: 600 !important;
+        }
+
+        .stat-pres-nav__link.active::before {
+            transform: scaleY(1) !important;
+        }
+
+        .stat-pres-nav__icon {
+            font-size: 1.25rem !important;
+            width: 24px !important;
+            text-align: center !important;
+        }
+
+        .stat-pres-nav__text {
+            flex: 1 !important;
+        }
+
+        .stat-pres-nav__badge {
+            background: var(--stat-color-primary) !important;
+            color: white !important;
+            font-size: 0.75rem !important;
+            padding: 2px 8px !important;
+            border-radius: 20px !important;
+            font-weight: 600 !important;
+        }
+
+        /* --- CONTENIDO PRINCIPAL --- */
+        .stat-pres-main {
+            margin-left: 280px !important;
+            padding: var(--stat-space-xl) !important;
+            min-height: 100vh !important;
+            background: var(--stat-color-gray-50) !important;
+        }
+
+        .stat-pres-section {
+            background: white !important;
+            border-radius: var(--stat-radius-xl) !important;
+            padding: var(--stat-space-3xl) !important;
+            margin-bottom: var(--stat-space-2xl) !important;
+            box-shadow: var(--stat-shadow-lg) !important;
+            border: 1px solid var(--stat-color-gray-200) !important;
+        }
+
+        .stat-pres-hero {
+            background: linear-gradient(135deg, 
+                var(--stat-color-primary) 0%,
+                var(--stat-color-secondary) 100%) !important;
+            color: white !important;
+            text-align: center !important;
+            padding: var(--stat-space-3xl) !important;
+            border-radius: var(--stat-radius-2xl) !important;
+            position: relative !important;
+            overflow: hidden !important;
+        }
+
+        .stat-pres-hero::before {
+            content: '' !important;
+            position: absolute !important;
+            top: 0 !important;
+            left: 0 !important;
+            right: 0 !important;
+            bottom: 0 !important;
+            background: url("data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M11 18c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm48 25c3.866 0 7-3.134 7-7s-3.134-7-7-7-7 3.134-7 7 3.134 7 7 7zm-43-7c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm63 31c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM34 90c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zm56-76c1.657 0 3-1.343 3-3s-1.343-3-3-3-3 1.343-3 3 1.343 3 3 3zM12 86c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm28-65c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm23-11c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-6 60c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm29 22c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zM32 63c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm57-13c2.76 0 5-2.24 5-5s-2.24-5-5-5-5 2.24-5 5 2.24 5 5 5zm-9-21c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM60 91c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM35 41c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2zM12 60c1.105 0 2-.895 2-2s-.895-2-2-2-2 .895-2 2 .895 2 2 2z' fill='%23ffffff' fill-opacity='0.1' fill-rule='evenodd'/%3E%3C/svg%3E") !important;
+        }
+
+        .stat-pres-hero__title {
+            font-family: var(--stat-font-heading) !important;
+            font-size: 3.5rem !important;
+            font-weight: 900 !important;
+            line-height: 1.1 !important;
+            margin-bottom: var(--stat-space-lg) !important;
+            position: relative !important;
+            z-index: 1 !important;
+            letter-spacing: -0.025em !important;
+        }
+
+        .stat-pres-hero__subtitle {
+            font-size: 1.5rem !important;
+            opacity: 0.9 !important;
+            margin-bottom: var(--stat-space-2xl) !important;
+            position: relative !important;
+            z-index: 1 !important;
+            font-weight: 300 !important;
+        }
+
+        .stat-pres-hero__institution {
+            background: rgba(255, 255, 255, 0.1) !important;
+            backdrop-filter: blur(10px) !important;
+            border-radius: var(--stat-radius-lg) !important;
+            padding: var(--stat-space-xl) !important;
+            max-width: 600px !important;
+            margin: 0 auto !important;
+            position: relative !important;
+            z-index: 1 !important;
+            border: 1px solid rgba(255, 255, 255, 0.2) !important;
+        }
+
+        .stat-pres-hero__institution p {
+            margin: var(--stat-space-sm) 0 !important;
+            font-weight: 500 !important;
+        }
+
+        .stat-pres-section__title {
+            font-family: var(--stat-font-heading) !important;
+            font-size: 2.5rem !important;
+            font-weight: 800 !important;
+            color: var(--stat-color-gray-900) !important;
+            margin-bottom: var(--stat-space-xl) !important;
+            position: relative !important;
+            padding-bottom: var(--stat-space-md) !important;
+        }
+
+        .stat-pres-section__title::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: 0 !important;
+            left: 0 !important;
+            width: 60px !important;
+            height: 4px !important;
+            background: linear-gradient(90deg, var(--stat-color-primary), var(--stat-color-secondary)) !important;
+            border-radius: 2px !important;
+        }
+
+        .stat-pres-paragraph {
+            font-size: 1.125rem !important;
+            line-height: 1.7 !important;
+            color: var(--stat-color-gray-700) !important;
+            margin-bottom: var(--stat-space-lg) !important;
+        }
+
+        .stat-pres-paragraph--lead {
+            font-size: 1.25rem !important;
+            font-weight: 500 !important;
+            color: var(--stat-color-gray-900) !important;
+        }
+
+        /* --- COMPONENTES DE UI --- */
+        .stat-pres-card {
+            background: var(--stat-color-gray-50) !important;
+            border-radius: var(--stat-radius-lg) !important;
+            padding: var(--stat-space-xl) !important;
+            border: 1px solid var(--stat-color-gray-200) !important;
+            transition: all var(--stat-transition-base) !important;
+        }
+
+        .stat-pres-card:hover {
+            transform: translateY(-4px) !important;
+            box-shadow: var(--stat-shadow-xl) !important;
+            border-color: var(--stat-color-primary) !important;
+        }
+
+        .stat-pres-card__title {
+            font-family: var(--stat-font-heading) !important;
+            font-size: 1.5rem !important;
+            font-weight: 700 !important;
+            color: var(--stat-color-gray-900) !important;
+            margin-bottom: var(--stat-space-md) !important;
+        }
+
+        .stat-pres-feature-grid {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+            gap: var(--stat-space-xl) !important;
+            margin: var(--stat-space-2xl) 0 !important;
+        }
+
+        .stat-pres-feature-item {
+            display: flex !important;
+            align-items: flex-start !important;
+            gap: var(--stat-space-md) !important;
+            padding: var(--stat-space-lg) !important;
+            background: var(--stat-color-gray-50) !important;
+            border-radius: var(--stat-radius-lg) !important;
+            border-left: 4px solid var(--stat-color-primary) !important;
+        }
+
+        .stat-pres-feature-icon {
+            color: var(--stat-color-primary) !important;
+            font-size: 1.5rem !important;
+            margin-top: var(--stat-space-xs) !important;
+        }
+
+        /* --- ACTIVIDAD DRAG & DROP MEJORADA --- */
+        .stat-pres-dnd-container {
+            background: linear-gradient(135deg, var(--stat-color-gray-50) 0%, white 100%) !important;
+            border-radius: var(--stat-radius-xl) !important;
+            padding: var(--stat-space-2xl) !important;
+            margin: var(--stat-space-2xl) 0 !important;
+            border: 2px dashed var(--stat-color-gray-300) !important;
+        }
+
+        .stat-pres-dnd-instructions {
+            text-align: center !important;
+            margin-bottom: var(--stat-space-xl) !important;
+            color: var(--stat-color-gray-600) !important;
+        }
+
+        .stat-pres-dnd-items {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: var(--stat-space-md) !important;
+            justify-content: center !important;
+            margin-bottom: var(--stat-space-xl) !important;
+        }
+
+        .stat-pres-dnd-item {
+            padding: var(--stat-space-md) var(--stat-space-xl) !important;
+            background: white !important;
+            border: 2px solid var(--stat-color-gray-300) !important;
+            border-radius: var(--stat-radius-lg) !important;
+            cursor: grab !important;
+            user-select: none !important;
+            font-weight: 600 !important;
+            color: var(--stat-color-gray-800) !important;
+            transition: all var(--stat-transition-fast) !important;
+            position: relative !important;
+        }
+
+        .stat-pres-dnd-item:hover {
+            border-color: var(--stat-color-primary) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: var(--stat-shadow-md) !important;
+        }
+
+        .stat-pres-dnd-item.dragging {
+            opacity: 0.5 !important;
+            cursor: grabbing !important;
+        }
+
+        .stat-pres-dnd-bins {
+            display: grid !important;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)) !important;
+            gap: var(--stat-space-xl) !important;
+            margin-bottom: var(--stat-space-xl) !important;
+        }
+
+        .stat-pres-dnd-bin {
+            background: white !important;
+            border-radius: var(--stat-radius-lg) !important;
+            padding: var(--stat-space-xl) !important;
+            min-height: 200px !important;
+            border: 2px solid var(--stat-color-gray-300) !important;
+            transition: all var(--stat-transition-base) !important;
+        }
+
+        .stat-pres-dnd-bin.drag-over {
+            border-color: var(--stat-color-primary) !important;
+            background: rgba(37, 99, 235, 0.05) !important;
+            transform: scale(1.02) !important;
+        }
+
+        .stat-pres-dnd-bin__title {
+            text-align: center !important;
+            font-weight: 700 !important;
+            color: var(--stat-color-gray-900) !important;
+            margin-bottom: var(--stat-space-lg) !important;
+            padding-bottom: var(--stat-space-sm) !important;
+            border-bottom: 2px solid var(--stat-color-gray-300) !important;
+        }
+
+        .stat-pres-dnd-feedback {
+            text-align: center !important;
+            padding: var(--stat-space-lg) !important;
+            border-radius: var(--stat-radius-lg) !important;
+            margin-top: var(--stat-space-xl) !important;
+            font-weight: 600 !important;
+            transition: all var(--stat-transition-base) !important;
+        }
+
+        .stat-pres-dnd-feedback.success {
+            background: rgba(5, 150, 105, 0.1) !important;
+            color: var(--stat-color-success) !important;
+            border: 2px solid var(--stat-color-success) !important;
+        }
+
+        .stat-pres-dnd-feedback.error {
+            background: rgba(220, 38, 38, 0.1) !important;
+            color: var(--stat-color-accent) !important;
+            border: 2px solid var(--stat-color-accent) !important;
+        }
+
+        .stat-pres-button {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            gap: var(--stat-space-sm) !important;
+            padding: var(--stat-space-md) var(--stat-space-xl) !important;
+            background: var(--stat-color-primary) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: var(--stat-radius-lg) !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            transition: all var(--stat-transition-base) !important;
+            text-decoration: none !important;
+        }
+
+        .stat-pres-button:hover {
+            background: var(--stat-color-primary-dark) !important;
+            transform: translateY(-2px) !important;
+            box-shadow: var(--stat-shadow-lg) !important;
+        }
+
+        .stat-pres-button--secondary {
+            background: var(--stat-color-gray-200) !important;
+            color: var(--stat-color-gray-800) !important;
+        }
+
+        .stat-pres-button--secondary:hover {
+            background: var(--stat-color-gray-300) !important;
+        }
+
+        .stat-pres-button-group {
+            display: flex !important;
+            gap: var(--stat-space-md) !important;
+            justify-content: center !important;
+            margin-top: var(--stat-space-xl) !important;
+        }
+
+        /* --- TABS MEJORADAS --- */
+        .stat-pres-tabs {
+            margin: var(--stat-space-2xl) 0 !important;
+        }
+
+        .stat-pres-tab-buttons {
+            display: flex !important;
+            flex-wrap: wrap !important;
+            gap: var(--stat-space-sm) !important;
+            margin-bottom: var(--stat-space-xl) !important;
+            border-bottom: 2px solid var(--stat-color-gray-200) !important;
+            padding-bottom: var(--stat-space-sm) !important;
+        }
+
+        .stat-pres-tab-button {
+            padding: var(--stat-space-md) var(--stat-space-xl) !important;
+            background: none !important;
+            border: none !important;
+            color: var(--stat-color-gray-600) !important;
+            font-weight: 600 !important;
+            cursor: pointer !important;
+            border-radius: var(--stat-radius-md) var(--stat-radius-md) 0 0 !important;
+            transition: all var(--stat-transition-fast) !important;
+            position: relative !important;
+        }
+
+        .stat-pres-tab-button:hover {
+            color: var(--stat-color-primary) !important;
+            background: rgba(37, 99, 235, 0.05) !important;
+        }
+
+        .stat-pres-tab-button.active {
+            color: var(--stat-color-primary) !important;
+        }
+
+        .stat-pres-tab-button.active::after {
+            content: '' !important;
+            position: absolute !important;
+            bottom: -12px !important;
+            left: 0 !important;
+            right: 0 !important;
+            height: 4px !important;
+            background: var(--stat-color-primary) !important;
+            border-radius: 2px 2px 0 0 !important;
+        }
+
+        .stat-pres-tab-content {
+            display: none !important;
+            animation: fadeIn var(--stat-transition-base) !important;
+        }
+
+        .stat-pres-tab-content.active {
+            display: block !important;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* --- BOTÓN SCROLL TOP --- */
+        .stat-pres-scroll-top {
+            position: fixed !important;
+            bottom: var(--stat-space-xl) !important;
+            right: var(--stat-space-xl) !important;
+            width: 56px !important;
+            height: 56px !important;
+            background: var(--stat-color-primary) !important;
+            color: white !important;
+            border-radius: 50% !important;
+            display: flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            cursor: pointer !important;
+            opacity: 0 !important;
+            visibility: hidden !important;
+            transform: translateY(20px) !important;
+            transition: all var(--stat-transition-base) !important;
+            z-index: var(--stat-z-tooltip) !important;
+            box-shadow: var(--stat-shadow-lg) !important;
+            border: none !important;
+        }
+
+        .stat-pres-scroll-top.visible {
+            opacity: 1 !important;
+            visibility: visible !important;
+            transform: translateY(0) !important;
+        }
+
+        .stat-pres-scroll-top:hover {
+            background: var(--stat-color-primary-dark) !important;
+            transform: translateY(-4px) !important;
+            box-shadow: var(--stat-shadow-xl) !important;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 1024px) {
+            .stat-pres-sidebar {
+                transform: translateX(-100%) !important;
+            }
+            
+            .stat-pres-sidebar--mobile-open {
+                transform: translateX(0) !important;
+            }
+            
+            .stat-pres-main {
+                margin-left: 0 !important;
+            }
+            
+            .stat-pres-hero__title {
+                font-size: 2.5rem !important;
+            }
+            
+            .stat-pres-section {
+                padding: var(--stat-space-xl) !important;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .stat-pres-container {
+                padding: var(--stat-space-md) !important;
+            }
+            
+            .stat-pres-hero {
+                padding: var(--stat-space-xl) !important;
+            }
+            
+            .stat-pres-hero__title {
+                font-size: 2rem !important;
+            }
+            
+            .stat-pres-section__title {
+                font-size: 2rem !important;
+            }
+            
+            .stat-pres-dnd-bins {
+                grid-template-columns: 1fr !important;
+            }
+            
+            .stat-pres-feature-grid {
+                grid-template-columns: 1fr !important;
+            }
+        }
+
+        /* --- UTILIDADES --- */
+        .stat-pres-visually-hidden {
+            position: absolute !important;
+            width: 1px !important;
+            height: 1px !important;
+            padding: 0 !important;
+            margin: -1px !important;
+            overflow: hidden !important;
+            clip: rect(0, 0, 0, 0) !important;
+            white-space: nowrap !important;
+            border: 0 !important;
+        }
+
+        .stat-pres-text-center {
+            text-align: center !important;
+        }
+
+        .stat-pres-mt-2 {
+            margin-top: var(--stat-space-xl) !important;
+        }
+
+        .stat-pres-mb-2 {
+            margin-bottom: var(--stat-space-xl) !important;
+        }
+
+        /* --- TOGGLE SIDEBAR MÓVIL --- */
+        .stat-pres-sidebar-toggle {
+            position: fixed !important;
+            top: var(--stat-space-md) !important;
+            left: var(--stat-space-md) !important;
+            z-index: var(--stat-z-modal) !important;
+            display: none !important;
+        }
+
+        @media (max-width: 1024px) {
+            .stat-pres-sidebar-toggle {
+                display: block !important;
+            }
+        }
+
+        /* --- PROGRESS INDICATOR --- */
+        .stat-pres-progress {
+            position: fixed !important;
+            top: 0 !important;
+            left: 0 !important;
+            width: 100% !important;
+            height: 4px !important;
+            background: var(--stat-color-gray-200) !important;
+            z-index: var(--stat-z-tooltip) !important;
+        }
+
+        .stat-pres-progress__bar {
+            height: 100% !important;
+            background: linear-gradient(90deg, var(--stat-color-primary), var(--stat-color-secondary)) !important;
+            width: 0% !important;
+            transition: width 0.3s ease !important;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <div class="wrap row">
-      <div class="row" style="gap:.8rem">
-        <img src="../FACEN_LOGO.jpg" alt="FACEN" class="facen"/>
-        <div class="brand">Softwares Estadísticos<br/><span style="font-weight:400;font-size:.95rem;opacity:.9">FACEN, UNA</span></div>
-      </div>
-      <nav aria-label="Principal">
-        <ul>
-          <li><a href="../">Inicio</a></li>
-          <li><a href="../#unidades">Unidades</a></li>
-          <li><a href="../#programa">Programa</a></li>
-          <li><a href="../#docente">Docente</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
+    <div class="stat-pres-component">
+        <!-- Barra de progreso -->
+        <div class="stat-pres-progress" role="progressbar" aria-valuemin="0" aria-valuemax="100">
+            <div class="stat-pres-progress__bar"></div>
+        </div>
 
-  <section class="hero">
-    <div class="wrap">
-      <div class="pill"><i class="fa-solid fa-2"></i> Unidad 2</div>
-      <div class="pill"><i class="fa-solid fa-chart-bar"></i> SPSS</div>
-      <h1>SPSS, entorno, manejo de datos y descriptivos</h1>
-      <p class="muted" style="margin-top:.5rem">Instalación, ventanas, importación, limpieza, transformación, tablas y gráficos básicos.</p>
-      <p style="margin-top:1rem">
-        <a class="btn" href="./evaluacion/">Ir a la evaluación</a>
-        <a class="btn outline" href="../unidad1/evaluacion/">Ver ejemplo de evaluación Unidad 1</a>
-      </p>
-    </div>
-  </section>
+        <!-- Botón toggle para móvil -->
+        <button class="stat-pres-sidebar-toggle stat-pres-button" aria-label="Alternar menú de navegación">
+            <i class="fas fa-bars"></i>
+        </button>
 
-  <section class="section">
-    <div class="wrap">
-      <h2 class="title">Resultados de aprendizaje</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Entorno y flujos</h3>
-          <ul class="list">
-            <li>Reconoce las ventanas de SPSS y su función</li>
-            <li>Gestiona proyectos y rutas con buenas prácticas</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Importar y preparar datos</h3>
-          <ul class="list">
-            <li>Importa Excel y CSV preservando tipos</li>
-            <li>Recodifica y etiqueta variables</li>
-            <li>Gestiona valores perdidos</li>
-          </ul>
-        </div>
-        <div class="card">
-          <h3>Descriptivos y gráficos</h3>
-          <ul class="list">
-            <li>Aplica frecuencias y tablas cruzadas</li>
-            <li>Genera gráficos de barras, histograma y boxplot</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Sidebar de navegación -->
+        <nav class="stat-pres-sidebar" aria-label="Navegación principal">
+            <div class="stat-pres-sidebar__logo">
+                <i class="fas fa-chart-line stat-pres-sidebar__logo-icon"></i>
+                <span class="stat-pres-sidebar__logo-text">Estadística App</span>
+            </div>
+            
+            <ul class="stat-pres-nav__list" role="list">
+                <li class="stat-pres-nav__item" role="listitem">
+                    <a href="#portada" class="stat-pres-nav__link active" aria-current="page">
+                        <i class="fas fa-home stat-pres-nav__icon"></i>
+                        <span class="stat-pres-nav__text">Portada</span>
+                    </a>
+                </li>
+                <li class="stat-pres-nav__item" role="listitem">
+                    <a href="#introduccion" class="stat-pres-nav__link">
+                        <i class="fas fa-info-circle stat-pres-nav__icon"></i>
+                        <span class="stat-pres-nav__text">Introducción</span>
+                        <span class="stat-pres-nav__badge" aria-label="Nuevo contenido">Nuevo</span>
+                    </a>
+                </li>
+                <li class="stat-pres-nav__item" role="listitem">
+                    <a href="#instalacion" class="stat-pres-nav__link">
+                        <i class="fas fa-download stat-pres-nav__icon"></i>
+                        <span class="stat-pres-nav__text">Instalación</span>
+                    </a>
+                </li>
+                <li class="stat-pres-nav__item" role="listitem">
+                    <a href="#interfaz" class="stat-pres-nav__link">
+                        <i class="fas fa-desktop stat-pres-nav__icon"></i>
+                        <span class="stat-pres-nav__text">Interfaz</span>
+                    </a>
+                </li>
+                <li class="stat-pres-nav__item" role="listitem">
+                    <a href="#actividad" class="stat-pres-nav__link">
+                        <i class="fas fa-puzzle-piece stat-pres-nav__icon"></i>
+                        <span class="stat-pres-nav__text">Actividad Práctica</span>
+                        <span class="stat-pres-nav__badge" aria-label="Actividad interactiva">Interactivo</span>
+                    </a>
+                </li>
+                <li class="stat-pres-nav__item" role="listitem">
+                    <a href="#buenas-practicas" class="stat-pres-nav__link">
+                        <i class="fas fa-check-circle stat-pres-nav__icon"></i>
+                        <span class="stat-pres-nav__text">Buenas Prácticas</span>
+                    </a>
+                </li>
+                <li class="stat-pres-nav__item" role="listitem">
+                    <a href="#recursos" class="stat-pres-nav__link">
+                        <i class="fas fa-external-link-alt stat-pres-nav__icon"></i>
+                        <span class="stat-pres-nav__text">Recursos Adicionales</span>
+                    </a>
+                </li>
+            </ul>
+            
+            <div class="stat-pres-card" style="margin-top: auto;">
+                <h3 class="stat-pres-card__title">Progreso del Curso</h3>
+                <div class="stat-pres-progress" style="height: 8px; background: var(--stat-color-gray-300);">
+                    <div class="stat-pres-progress__bar" style="width: 25%;"></div>
+                </div>
+                <p style="margin-top: var(--stat-space-sm); font-size: 0.875rem; color: var(--stat-color-gray-600);">
+                    Completado: 25%
+                </p>
+            </div>
+        </nav>
 
-  <section class="section" style="background:#f8f9fa">
-    <div class="wrap">
-      <h2 class="title">Materiales</h2>
-      <div class="grid">
-        <div class="card">
-          <h3>Dataset de práctica</h3>
-          <p class="muted">Archivo tabular con variables categóricas y numéricas para todos los ejercicios</p>
-          <p style="margin-top:.6rem"><a class="btn" href="#" onclick="alert('Enlaza aquí tu dataset público o súbelo al repo.');return false;"><i class="fa-solid fa-file-csv"></i> Descargar CSV</a></p>
-        </div>
-        <div class="card">
-          <h3>Guía de actividades</h3>
-          <p class="muted">Secuencia de tareas paso a paso con criterios de evaluación</p>
-          <p style="margin-top:.6rem"><a class="btn outline" href="#" onclick="alert('Enlaza aquí tu guía PDF, DOCX o MD.');return false;"><i class="fa-solid fa-file-lines"></i> Abrir guía</a></p>
-        </div>
-        <div class="card">
-          <h3>Rúbrica de evaluación</h3>
-          <p class="muted">Indicadores observables para desempeño satisfactorio</p>
-          <p style="margin-top:.6rem"><a class="btn outline" href="./evaluacion/"><i class="fa-solid fa-list-check"></i> Ir a evaluación</a></p>
-        </div>
-      </div>
-    </div>
-  </section>
+        <!-- Contenido principal -->
+        <main class="stat-pres-main" id="main-content">
+            <!-- Sección Hero -->
+            <section id="portada" class="stat-pres-section stat-pres-hero" data-aos="fade-up">
+                <h1 class="stat-pres-hero__title">INTRODUCCIÓN A LOS SOFTWARES ESTADÍSTICOS</h1>
+                <p class="stat-pres-hero__subtitle">Unidad 1: Introducción, instalación y entorno de trabajo</p>
+                
+                <div class="stat-pres-hero__institution">
+                    <p>FACULTAD DE CIENCIAS EXACTAS Y NATURALES</p>
+                    <p>UNIVERSIDAD NACIONAL DE ASUNCIÓN</p>
+                    <p>Carrera de Ciencias, mención Matemática Estadística</p>
+                </div>
+                
+                <div class="stat-pres-button-group">
+                    <a href="#introduccion" class="stat-pres-button" aria-label="Comenzar la unidad">
+                        <i class="fas fa-play-circle"></i> Comenzar Unidad
+                    </a>
+                    <button class="stat-pres-button stat-pres-button--secondary" aria-label="Descargar material de apoyo">
+                        <i class="fas fa-download"></i> Material de Apoyo
+                    </button>
+                </div>
+            </section>
 
-  <footer>
-    <div class="wrap foot">
-      <div>
-        <strong>Softwares Estadísticos</strong><br/>
-        FACEN, Universidad Nacional de Asunción
-      </div>
-      <div>
-        <a href="../">Volver a la portada</a><br/>
-        <a href="../#unidades">Ver todas las unidades</a>
-      </div>
-      <div>
-        <a href="./evaluacion/">Evaluación Unidad 2</a><br/>
-        <a href="../unidad1/evaluacion/">Evaluación Unidad 1</a>
-      </div>
+            <!-- Sección Introducción -->
+            <section id="introduccion" class="stat-pres-section" data-aos="fade-up">
+                <h2 class="stat-pres-section__title">1. Introducción al Software Estadístico</h2>
+                
+                <p class="stat-pres-paragraph stat-pres-paragraph--lead">
+                    En la era del Big Data y la analítica avanzada, el software estadístico se ha convertido en una herramienta fundamental para investigadores, científicos y profesionales de diversas disciplinas.
+                </p>
+                
+                <p class="stat-pres-paragraph">
+                    Estos programas permiten realizar análisis complejos, visualizar datos de manera efectiva y tomar decisiones basadas en evidencia estadística sólida. Desde la investigación académica hasta la inteligencia de negocios, el dominio de estas herramientas es esencial.
+                </p>
+                
+                <div class="stat-pres-feature-grid">
+                    <div class="stat-pres-feature-item">
+                        <i class="fas fa-calculator stat-pres-feature-icon"></i>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: var(--stat-space-xs); color: var(--stat-color-gray-900);">
+                                Análisis Preciso
+                            </h3>
+                            <p style="color: var(--stat-color-gray-600);">
+                                Realiza cálculos estadísticos complejos con precisión y eficiencia.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-pres-feature-item">
+                        <i class="fas fa-chart-bar stat-pres-feature-icon"></i>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: var(--stat-space-xs); color: var(--stat-color-gray-900);">
+                                Visualización de Datos
+                            </h3>
+                            <p style="color: var(--stat-color-gray-600);">
+                                Crea gráficos y visualizaciones profesionales para comunicar resultados.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-pres-feature-item">
+                        <i class="fas fa-database stat-pres-feature-icon"></i>
+                        <div>
+                            <h3 style="font-weight: 600; margin-bottom: var(--stat-space-xs); color: var(--stat-color-gray-900);">
+                                Manejo de Big Data
+                            </h3>
+                            <p style="color: var(--stat-color-gray-600);">
+                                Procesa y analiza grandes volúmenes de datos de manera eficiente.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Sección Actividad Interactiva -->
+            <section id="actividad" class="stat-pres-section" data-aos="fade-up">
+                <h2 class="stat-pres-section__title">Actividad Interactiva: Clasificación de Software</h2>
+                
+                <p class="stat-pres-paragraph">
+                    Arrastra cada software a la categoría correcta según su tipo principal de interfaz (por código o GUI).
+                </p>
+                
+                <div class="stat-pres-dnd-container">
+                    <div class="stat-pres-dnd-instructions">
+                        <p><i class="fas fa-info-circle" style="margin-right: 8px;"></i> Arrastra los elementos a las categorías correspondientes</p>
+                    </div>
+                    
+                    <div class="stat-pres-dnd-items" id="items-container">
+                        <div class="stat-pres-dnd-item" draggable="true" data-software="R">
+                            <i class="fab fa-r-project" style="margin-right: 8px;"></i> R
+                        </div>
+                        <div class="stat-pres-dnd-item" draggable="true" data-software="Python">
+                            <i class="fab fa-python" style="margin-right: 8px;"></i> Python
+                        </div>
+                        <div class="stat-pres-dnd-item" draggable="true" data-software="Stata">
+                            <i class="fas fa-chart-line" style="margin-right: 8px;"></i> Stata
+                        </div>
+                        <div class="stat-pres-dnd-item" draggable="true" data-software="SPSS">
+                            <i class="fas fa-table" style="margin-right: 8px;"></i> SPSS
+                        </div>
+                        <div class="stat-pres-dnd-item" draggable="true" data-software="PSPP">
+                            <i class="fas fa-chart-pie" style="margin-right: 8px;"></i> PSPP
+                        </div>
+                        <div class="stat-pres-dnd-item" draggable="true" data-software="Jamovi">
+                            <i class="fas fa-chart-bar" style="margin-right: 8px;"></i> Jamovi
+                        </div>
+                    </div>
+                    
+                    <div class="stat-pres-dnd-bins">
+                        <div class="stat-pres-dnd-bin" data-category="code" aria-label="Zona para software basado en código">
+                            <h3 class="stat-pres-dnd-bin__title">Basado en Código</h3>
+                            <p style="color: var(--stat-color-gray-600); text-align: center; font-size: 0.875rem;">
+                                Requiere escribir comandos
+                            </p>
+                        </div>
+                        
+                        <div class="stat-pres-dnd-bin" data-category="gui" aria-label="Zona para software con interfaz gráfica">
+                            <h3 class="stat-pres-dnd-bin__title">Interfaz Gráfica (GUI)</h3>
+                            <p style="color: var(--stat-color-gray-600); text-align: center; font-size: 0.875rem;">
+                                Navegación por menús
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <div class="stat-pres-dnd-feedback" id="feedback-message" role="alert" aria-live="polite">
+                        <!-- Mensaje de feedback se insertará aquí -->
+                    </div>
+                    
+                    <div class="stat-pres-button-group">
+                        <button class="stat-pres-button" id="reset-activity">
+                            <i class="fas fa-redo"></i> Reiniciar Actividad
+                        </button>
+                        <button class="stat-pres-button stat-pres-button--secondary" id="show-answer">
+                            <i class="fas fa-lightbulb"></i> Ver Solución
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Más secciones aquí (manteniendo la misma estructura mejorada) -->
+            
+        </main>
+
+        <!-- Botón Scroll to Top -->
+        <button class="stat-pres-scroll-top" id="scroll-top" aria-label="Volver arriba">
+            <i class="fas fa-arrow-up"></i>
+        </button>
     </div>
-  </footer>
+
+    <!-- Scripts optimizados -->
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+    // =================================================================
+    // JAVASCRIPT MODERNO - ARQUITECTURA COMPONENTE
+    // =================================================================
+    // ES6+ con polyfills para compatibilidad
+    // Patrón Module para encapsulación
+    // Gestión de eventos optimizada
+    // Accesibilidad mejorada
+    
+    (function() {
+        'use strict';
+        
+        // Configuración global
+        const CONFIG = {
+            selectors: {
+                component: '.stat-pres-component',
+                sidebar: '.stat-pres-sidebar',
+                sidebarToggle: '.stat-pres-sidebar-toggle',
+                navLinks: '.stat-pres-nav__link',
+                sections: '.stat-pres-section',
+                scrollTop: '#scroll-top',
+                mainContent: '#main-content',
+                progressBar: '.stat-pres-progress__bar',
+                dndItems: '.stat-pres-dnd-item',
+                dndBins: '.stat-pres-dnd-bin',
+                feedback: '#feedback-message',
+                resetBtn: '#reset-activity',
+                showAnswerBtn: '#show-answer'
+            },
+            correctAnswers: {
+                'R': 'code',
+                'Python': 'code',
+                'Stata': 'code',
+                'SPSS': 'gui',
+                'PSPP': 'gui',
+                'Jamovi': 'gui'
+            },
+            animation: {
+                duration: 800,
+                once: true
+            }
+        };
+        
+        // Estado de la aplicación
+        const AppState = {
+            draggedItem: null,
+            currentSection: 'portada',
+            progress: 25,
+            activityCompleted: false
+        };
+        
+        // Módulo de Navegación
+        const Navigation = {
+            init() {
+                this.cacheElements();
+                this.bindEvents();
+                this.setupIntersectionObserver();
+                this.updateProgress();
+            },
+            
+            cacheElements() {
+                this.sidebar = document.querySelector(CONFIG.selectors.sidebar);
+                this.sidebarToggle = document.querySelector(CONFIG.selectors.sidebarToggle);
+                this.navLinks = document.querySelectorAll(CONFIG.selectors.navLinks);
+                this.sections = document.querySelectorAll(CONFIG.selectors.sections);
+                this.scrollTopBtn = document.querySelector(CONFIG.selectors.scrollTop);
+                this.mainContent = document.querySelector(CONFIG.selectors.mainContent);
+                this.progressBar = document.querySelector(CONFIG.selectors.progressBar);
+            },
+            
+            bindEvents() {
+                // Navegación suave
+                this.navLinks.forEach(link => {
+                    link.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        const targetId = link.getAttribute('href').substring(1);
+                        this.scrollToSection(targetId);
+                        this.updateActiveNav(link);
+                        
+                        // Cerrar sidebar en móvil
+                        if (window.innerWidth < 1024) {
+                            this.sidebar.classList.add('stat-pres-sidebar--collapsed');
+                        }
+                    });
+                });
+                
+                // Toggle sidebar móvil
+                if (this.sidebarToggle) {
+                    this.sidebarToggle.addEventListener('click', () => {
+                        this.sidebar.classList.toggle('stat-pres-sidebar--collapsed');
+                    });
+                }
+                
+                // Scroll to top
+                if (this.scrollTopBtn) {
+                    this.scrollTopBtn.addEventListener('click', () => {
+                        this.mainContent.scrollTo({
+                            top: 0,
+                            behavior: 'smooth'
+                        });
+                    });
+                }
+                
+                // Scroll events
+                this.mainContent.addEventListener('scroll', () => {
+                    this.handleScroll();
+                });
+            },
+            
+            scrollToSection(sectionId) {
+                const section = document.getElementById(sectionId);
+                if (section) {
+                    const offsetTop = section.offsetTop - 20;
+                    this.mainContent.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            },
+            
+            updateActiveNav(activeLink) {
+                this.navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    link.removeAttribute('aria-current');
+                });
+                
+                activeLink.classList.add('active');
+                activeLink.setAttribute('aria-current', 'page');
+            },
+            
+            setupIntersectionObserver() {
+                const observerOptions = {
+                    root: this.mainContent,
+                    threshold: 0.3
+                };
+                
+                const observer = new IntersectionObserver((entries) => {
+                    entries.forEach(entry => {
+                        if (entry.isIntersecting) {
+                            const sectionId = entry.target.id;
+                            AppState.currentSection = sectionId;
+                            
+                            // Actualizar navegación
+                            this.navLinks.forEach(link => {
+                                if (link.getAttribute('href') === `#${sectionId}`) {
+                                    this.updateActiveNav(link);
+                                }
+                            });
+                            
+                            // Actualizar progreso
+                            this.updateProgress();
+                        }
+                    });
+                }, observerOptions);
+                
+                this.sections.forEach(section => {
+                    observer.observe(section);
+                });
+            },
+            
+            handleScroll() {
+                // Mostrar/ocultar botón scroll to top
+                const scrollPosition = this.mainContent.scrollTop;
+                if (scrollPosition > 300) {
+                    this.scrollTopBtn.classList.add('visible');
+                } else {
+                    this.scrollTopBtn.classList.remove('visible');
+                }
+                
+                // Actualizar barra de progreso de scroll
+                const scrollHeight = this.mainContent.scrollHeight - this.mainContent.clientHeight;
+                const scrollPercent = (scrollPosition / scrollHeight) * 100;
+                if (this.progressBar) {
+                    this.progressBar.style.width = `${scrollPercent}%`;
+                }
+            },
+            
+            updateProgress() {
+                // Calcular progreso basado en secciones vistas
+                const totalSections = this.sections.length;
+                const currentIndex = Array.from(this.sections).findIndex(
+                    section => section.id === AppState.currentSection
+                );
+                
+                if (currentIndex >= 0) {
+                    AppState.progress = Math.round(((currentIndex + 1) / totalSections) * 100);
+                    
+                    // Actualizar UI de progreso
+                    const progressBars = document.querySelectorAll('.stat-pres-progress__bar');
+                    progressBars.forEach(bar => {
+                        if (!bar.style.width.includes('scroll')) {
+                            bar.style.width = `${AppState.progress}%`;
+                        }
+                    });
+                    
+                    // Actualizar texto de progreso
+                    const progressText = document.querySelector('.stat-pres-card p');
+                    if (progressText) {
+                        progressText.textContent = `Completado: ${AppState.progress}%`;
+                    }
+                }
+            }
+        };
+        
+        // Módulo de Actividad Drag & Drop
+        const DragDropActivity = {
+            init() {
+                this.cacheElements();
+                this.bindEvents();
+                this.setupDragDrop();
+            },
+            
+            cacheElements() {
+                this.dndItems = document.querySelectorAll(CONFIG.selectors.dndItems);
+                this.dndBins = document.querySelectorAll(CONFIG.selectors.dndBins);
+                this.feedback = document.querySelector(CONFIG.selectors.feedback);
+                this.resetBtn = document.querySelector(CONFIG.selectors.resetBtn);
+                this.showAnswerBtn = document.querySelector(CONFIG.selectors.showAnswerBtn);
+                this.itemsContainer = document.getElementById('items-container');
+            },
+            
+            bindEvents() {
+                if (this.resetBtn) {
+                    this.resetBtn.addEventListener('click', () => this.resetActivity());
+                }
+                
+                if (this.showAnswerBtn) {
+                    this.showAnswerBtn.addEventListener('click', () => this.showAnswer());
+                }
+            },
+            
+            setupDragDrop() {
+                // Eventos para items arrastrables
+                this.dndItems.forEach(item => {
+                    item.addEventListener('dragstart', this.handleDragStart.bind(this));
+                    item.addEventListener('dragend', this.handleDragEnd.bind(this));
+                });
+                
+                // Eventos para zonas de destino
+                this.dndBins.forEach(bin => {
+                    bin.addEventListener('dragover', this.handleDragOver.bind(this));
+                    bin.addEventListener('dragleave', this.handleDragLeave.bind(this));
+                    bin.addEventListener('drop', this.handleDrop.bind(this));
+                });
+            },
+            
+            handleDragStart(e) {
+                AppState.draggedItem = e.target;
+                e.target.classList.add('dragging');
+                e.dataTransfer.effectAllowed = 'move';
+                e.dataTransfer.setData('text/html', e.target.outerHTML);
+            },
+            
+            handleDragEnd(e) {
+                e.target.classList.remove('dragging');
+            },
+            
+            handleDragOver(e) {
+                e.preventDefault();
+                e.dataTransfer.dropEffect = 'move';
+                e.target.closest('.stat-pres-dnd-bin').classList.add('drag-over');
+            },
+            
+            handleDragLeave(e) {
+                e.target.closest('.stat-pres-dnd-bin').classList.remove('drag-over');
+            },
+            
+            handleDrop(e) {
+                e.preventDefault();
+                e.stopPropagation();
+                
+                const bin = e.target.closest('.stat-pres-dnd-bin');
+                bin.classList.remove('drag-over');
+                
+                if (AppState.draggedItem && AppState.draggedItem.parentNode !== bin) {
+                    bin.appendChild(AppState.draggedItem);
+                    this.checkAnswers();
+                }
+            },
+            
+            checkAnswers() {
+                let allCorrect = true;
+                let allPlaced = true;
+                
+                // Verificar si todos los items fueron colocados
+                if (this.itemsContainer.children.length > 0) {
+                    allPlaced = false;
+                }
+                
+                // Verificar respuestas correctas
+                this.dndBins.forEach(bin => {
+                    const category = bin.dataset.category;
+                    const itemsInBin = bin.querySelectorAll('.stat-pres-dnd-item');
+                    
+                    itemsInBin.forEach(item => {
+                        const software = item.dataset.software;
+                        if (CONFIG.correctAnswers[software] !== category) {
+                            allCorrect = false;
+                        }
+                    });
+                });
+                
+                // Mostrar feedback
+                if (allPlaced && allCorrect) {
+                    this.showFeedback('¡Excelente! Has clasificado todos los softwares correctamente.', 'success');
+                    AppState.activityCompleted = true;
+                } else if (allPlaced && !allCorrect) {
+                    this.showFeedback('Algunas clasificaciones no son correctas. Revisa e inténtalo de nuevo.', 'error');
+                } else {
+                    this.showFeedback('Coloca todos los softwares en las categorías correspondientes.', '');
+                }
+            },
+            
+            showFeedback(message, type) {
+                if (!this.feedback) return;
+                
+                this.feedback.textContent = message;
+                this.feedback.className = 'stat-pres-dnd-feedback';
+                
+                if (type) {
+                    this.feedback.classList.add(type);
+                }
+                
+                // Anunciar para lectores de pantalla
+                this.feedback.setAttribute('aria-live', 'assertive');
+            },
+            
+            resetActivity() {
+                // Volver todos los items al contenedor original
+                this.dndItems.forEach(item => {
+                    this.itemsContainer.appendChild(item);
+                    item.classList.remove('dragging');
+                });
+                
+                // Limpiar feedback
+                this.showFeedback('', '');
+                
+                // Limpiar estado de drag-over
+                this.dndBins.forEach(bin => {
+                    bin.classList.remove('drag-over');
+                });
+                
+                AppState.activityCompleted = false;
+            },
+            
+            showAnswer() {
+                // Colocar cada item en su categoría correcta
+                this.resetActivity();
+                
+                this.dndItems.forEach(item => {
+                    const software = item.dataset.software;
+                    const correctCategory = CONFIG.correctAnswers[software];
+                    const correctBin = document.querySelector(`[data-category="${correctCategory}"]`);
+                    
+                    if (correctBin) {
+                        correctBin.appendChild(item);
+                    }
+                });
+                
+                this.showFeedback('Esta es la clasificación correcta. ¡Ahora inténtalo tú!', 'success');
+            }
+        };
+        
+        // Módulo de Utilidades
+        const Utils = {
+            init() {
+                this.initAOS();
+                this.setupKeyboardNavigation();
+                this.preventZoomOnDoubleTap();
+            },
+            
+            initAOS() {
+                if (typeof AOS !== 'undefined') {
+                    AOS.init(CONFIG.animation);
+                }
+            },
+            
+            setupKeyboardNavigation() {
+                // Navegación con teclado
+                document.addEventListener('keydown', (e) => {
+                    // Escape cierra sidebar
+                    if (e.key === 'Escape' && window.innerWidth < 1024) {
+                        Navigation.sidebar.classList.add('stat-pres-sidebar--collapsed');
+                    }
+                    
+                    // Tab maneja focus visible
+                    if (e.key === 'Tab') {
+                        document.body.classList.add('user-is-tabbing');
+                    }
+                });
+                
+                document.addEventListener('click', () => {
+                    document.body.classList.remove('user-is-tabbing');
+                });
+            },
+            
+            preventZoomOnDoubleTap() {
+                // Prevenir zoom en doble tap en móviles
+                let lastTouchEnd = 0;
+                document.addEventListener('touchend', (e) => {
+                    const now = Date.now();
+                    if (now - lastTouchEnd <= 300) {
+                        e.preventDefault();
+                    }
+                    lastTouchEnd = now;
+                }, false);
+            }
+        };
+        
+        // Inicialización de la aplicación
+        document.addEventListener('DOMContentLoaded', () => {
+            Navigation.init();
+            DragDropActivity.init();
+            Utils.init();
+            
+            // Forzar repaint para animaciones
+            setTimeout(() => {
+                document.body.style.opacity = 1;
+            }, 50);
+            
+            // Log de inicialización (puede removerse en producción)
+            console.log('✅ Presentación Estadística inicializada correctamente');
+        });
+        
+        // Exponer API pública si es necesario
+        window.StatPresApp = {
+            Navigation,
+            DragDropActivity,
+            Utils,
+            state: AppState
+        };
+        
+    })();
+    </script>
 </body>
 </html>
